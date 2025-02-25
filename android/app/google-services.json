@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "416740174321",
+    "project_id": "rh-positivo-36e08",
+    "storage_bucket": "rh-positivo-36e08.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416740174321:android:7ce53fd82318c08c68bc50",
+        "android_client_info": {
+          "package_name": "RH.positivo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416740174321-0ere1fb8c43jcf4750i6raumgdivf8ho.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "RH.positivo",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "416740174321-0chqvgfe47qb671cr680tmnlsh5ngul3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjJIaXOYXeOj8Jy3DIF-2kPt5gl8EmCvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416740174321-0chqvgfe47qb671cr680tmnlsh5ngul3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "416740174321-hb15sfj3ilgf0t643isieakari4qk23v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "RH.positivo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
