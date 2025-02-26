@@ -2,12 +2,8 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'a36_olvide_contrasea_model.dart';
 export 'a36_olvide_contrasea_model.dart';
 
@@ -186,9 +182,6 @@ class _A36OlvideContraseaWidgetState extends State<A36OlvideContraseaWidget> {
                                     Icons.email_outlined,
                                     color: valueOrDefault<Color>(
                                       _model.userNameTextFieldTextController
-                                                      .text ==
-                                                  null ||
-                                              _model.userNameTextFieldTextController
                                                       .text ==
                                                   ''
                                           ? FlutterFlowTheme.of(context).grey

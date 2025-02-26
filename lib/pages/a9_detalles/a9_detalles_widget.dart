@@ -9,17 +9,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import '/index.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:provider/provider.dart';
 import 'a9_detalles_model.dart';
 export 'a9_detalles_model.dart';
 
@@ -1870,7 +1864,7 @@ class _A9DetallesWidgetState extends State<A9DetallesWidget> {
                                                 children: [
                                                   TextSpan(
                                                     text:
-                                                        '(Al elegir los horarios considere que los profesionales requieren ${a9DetallesOrdersRecord?.workHour} horas para completar el servicio y tienen un maximo de 8 horas por dia)',
+                                                        '(Al elegir los horarios considere que los profesionales requieren ${a9DetallesOrdersRecord?.workHour} horas para completar el servicio y tienen un maximo de 8 horas por dia) ',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -1879,29 +1873,27 @@ class _A9DetallesWidgetState extends State<A9DetallesWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 14.0,
+                                                          fontSize: 13.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.w500,
                                                         ),
                                                   ),
                                                   TextSpan(
                                                     text: FFLocalizations.of(
                                                             context)
                                                         .getText(
-                                                      '8tggvu98' /* 
-(Los profesionales no trabaja... */
-                                                      ,
+                                                      '8tggvu98' /* (Los horarios seleccionados se... */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelLarge
                                                         .override(
                                                           fontFamily: 'Baloo 2',
-                                                          fontSize: 14.0,
+                                                          fontSize: 13.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.w500,
                                                         ),
                                                   )
                                                 ],
@@ -1910,6 +1902,7 @@ class _A9DetallesWidgetState extends State<A9DetallesWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Baloo 2',
+                                                          fontSize: 13.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -2181,16 +2174,16 @@ class _A9DetallesWidgetState extends State<A9DetallesWidget> {
                                                                   createOrdersRecordData(
                                                             details:
                                                                 a9DetallesOrdersRecord
-                                                                    ?.details,
+                                                                    .details,
                                                             materials:
                                                                 a9DetallesOrdersRecord
-                                                                    ?.materials,
+                                                                    .materials,
                                                             workPrise:
                                                                 a9DetallesOrdersRecord
-                                                                    ?.workPrise,
+                                                                    .workPrise,
                                                             workHour:
                                                                 a9DetallesOrdersRecord
-                                                                    ?.workHour,
+                                                                    .workHour,
                                                             startDate:
                                                                 '${_model.iDropDownHsValue}/${_model.iDropDownDyValue}/${_model.iDropDownMthValue}',
                                                             endDate:

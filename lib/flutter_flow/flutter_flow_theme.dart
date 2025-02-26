@@ -55,6 +55,9 @@ abstract class FlutterFlowTheme {
   late Color red3;
   late Color neutral07;
   late Color facebookBox;
+  late Color customColor1;
+  late Color customColor2;
+  late Color customColor3;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -167,6 +170,9 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color red3 = Color(0xFFFFDBDB);
   late Color neutral07 = Color(0xFF841622);
   late Color facebookBox = Color(0xFF4A66AC);
+  late Color customColor1 = Color(0xFF0FF9A4);
+  late Color customColor2 = Color(0xFFA0FD88);
+  late Color customColor3 = Color(0xFF0355EB);
 }
 
 abstract class Typography {

@@ -1,20 +1,14 @@
 import 'package:provider/provider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
 import 'backend/firebase/firebase_config.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'flutter_flow/nav/nav.dart';
-import 'index.dart';
 
 import 'backend/stripe/payment_manager.dart';
 
@@ -108,6 +102,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'RH positivo',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
@@ -125,16 +120,16 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         brightness: Brightness.light,
         scrollbarTheme: ScrollbarThemeData(
-          thumbVisibility: MaterialStateProperty.all(true),
-          trackVisibility: MaterialStateProperty.all(false),
+          thumbVisibility: WidgetStateProperty.all(true),
+          trackVisibility: WidgetStateProperty.all(false),
           interactive: true,
-          thickness: MaterialStateProperty.all(5.0),
+          thickness: WidgetStateProperty.all(5.0),
           radius: Radius.circular(100.0),
-          thumbColor: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.dragged)) {
+          thumbColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.dragged)) {
               return Color(4279411318);
             }
-            if (states.contains(MaterialState.hovered)) {
+            if (states.contains(WidgetState.hovered)) {
               return Color(4279411318);
             }
             return Color(4279411318);

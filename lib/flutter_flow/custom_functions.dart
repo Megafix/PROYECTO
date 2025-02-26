@@ -58,3 +58,42 @@ String? ratingfre() {
         updatedRating.toStringAsFixed(2)); // Redondeamos a 2 decimales.
   }
 }
+
+double? excelcost() {
+  double calcularTotal(
+      String rubro1,
+      int cantidad1,
+      String rubro2,
+      int cantidad2,
+      String rubro3,
+      int cantidad3,
+      String rubro4,
+      int cantidad4,
+      dynamic excelData // JSON devuelto por la API de Excel
+      ) {
+    double obtenerCosto(String rubro) {
+      var resultado = excelData["values"]
+          .firstWhere((fila) => fila[0] == rubro, orElse: () => [null, 0]);
+      return resultado[1] ?? 0.0;
+    }
+
+    double costo1 = obtenerCosto(rubro1);
+    double costo2 = obtenerCosto(rubro2);
+    double costo3 = obtenerCosto(rubro3);
+    double costo4 = obtenerCosto(rubro4);
+
+    return (costo1 * cantidad1) +
+        (costo2 * cantidad2) +
+        (costo3 * cantidad3) +
+        (costo4 * cantidad4);
+  }
+}
+
+double? makenumber() {
+  double parseNumber(dynamic value) {
+    if (value is String) {
+      return double.tryParse(value) ?? 0;
+    }
+    return value.toDouble();
+  }
+}

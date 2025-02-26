@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
-import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -13,24 +11,13 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class ExcelCall {
   static Future<ApiCallResponse> call() async {
-    final ffApiRequestBody = '''
-{
-  "transaction_amount": 8000,
-  "description": "Pago por presupuesto",
-  "payment_method_id": "",
-  "payer": {
-    "email": ""
-  }
-}''';
     return ApiManager.instance.makeApiCall(
       callName: 'excel',
       apiUrl:
           'https://sheets.googleapis.com/v4/spreadsheets/1yAz4IPuAIHUQ1K-Lu-7F5HUCmp0rJ6SLwNwIcfEnvDU/values/Sheet1?key=AIzaSyCCpAaylL2mmgGB2MhZ0zcgTorKlJ9JjSE',
-      callType: ApiCallType.POST,
+      callType: ApiCallType.GET,
       headers: {},
       params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -42,7 +29,7 @@ class ExcelCall {
 
   static List<String>? rubros(dynamic response) => (getJsonField(
         response,
-        r'''$.values[*][0]''',
+        r'''$.values[2:200][0]''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -60,14 +47,23 @@ class ExcelCall {
       ));
   static List<String>? costo(dynamic response) => (getJsonField(
         response,
-        r'''$.values[*][2]''',
+        r'''$.values[2:200][1]''',
         true,
       ) as List?)
           ?.withoutNulls
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static List? every(dynamic response) => getJsonField(
+  static List<String>? every(dynamic response) => (getJsonField(
+        response,
+        r'''$.values[2:200][0,1]''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? values(dynamic response) => getJsonField(
         response,
         r'''$.values''',
         true,
@@ -118,19 +114,16 @@ class MercadopagoCall {
   static Future<ApiCallResponse> call() async {
     final ffApiRequestBody = '''
 {
-  "transaction_amount": "preciopresupuesto",
-  "description": "Pago por servicio",
-  "payment_method_id": "",
-  "payer": {
-    "email": "email"
-  }
+  "work_prise": "\$work_prise",
+  "email": "\$email"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'mercadopago',
       apiUrl: 'https://api.mercadopago.com/v1/payments',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer TU_ACCESS_TOKEN',
+        'Authorization':
+            'Bearer APP_USR-320738281269718-022117-d25aa3eec6a3f53a0a7b9965a35d149b-2280283251',
         'Content-Type': 'application/json',
       },
       params: {},
@@ -144,6 +137,56 @@ class MercadopagoCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class MppaymentsCall {
+  static Future<ApiCallResponse> call() async {
+    final ffApiRequestBody = '''
+{
+  "items": [
+    {
+      "title": "Pago por servicio",
+      "quantity": 1,
+      "currency_id": "ARS",
+      "unit_price":"\$prisework"
+    }
+  ],
+  "payer": {
+    "email": "\$email"
+  },
+  "back_urls": {
+    "success": "https://TU_APP/success",
+    "failure": "https://TU_APP/failure",
+    "pending": "https://TU_APP/pending"
+  },
+  "auto_return": "approved"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'mppayments',
+      apiUrl: 'https://api.mercadopago.com/checkout/preferences',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':
+            'Bearer APP_USR-320738281269718-022117-d25aa3eec6a3f53a0a7b9965a35d149b-2280283251',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? paymenturl(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.init_point''',
+      ));
 }
 
 class ApiPagingParams {

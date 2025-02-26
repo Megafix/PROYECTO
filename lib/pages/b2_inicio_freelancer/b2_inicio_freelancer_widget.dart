@@ -1,10 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -12,7 +12,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'b2_inicio_freelancer_model.dart';
 export 'b2_inicio_freelancer_model.dart';
@@ -86,7 +85,7 @@ class _B2InicioFreelancerWidgetState extends State<B2InicioFreelancerWidget> {
                     topRight: Radius.circular(0.0),
                   ),
                   child: Container(
-                    height: 370.0,
+                    height: 300.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
                       borderRadius: BorderRadius.only(
@@ -791,150 +790,223 @@ class _B2InicioFreelancerWidgetState extends State<B2InicioFreelancerWidget> {
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 5.0, 0.0),
-                                  child: Icon(
-                                    FFIcons.kmapPin,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 30.0,
-                                  ),
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: AuthUserStreamWidget(
+                        builder: (context) => StreamBuilder<List<OrdersRecord>>(
+                          stream: queryOrdersRecord(
+                            queryBuilder: (ordersRecord) => ordersRecord
+                                .where(
+                                  'status',
+                                  isEqualTo: 'En proceso',
+                                )
+                                .where(
+                                  'fid',
+                                  isEqualTo: valueOrDefault(
+                                      currentUserDocument?.fid, ''),
                                 ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'qzilde5c' /* Bahía Blanca */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        fontFamily: 'Baloo 2',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        fontSize: 20.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
-                            ].addToStart(SizedBox(width: 0.0)),
+                            singleRecord: true,
                           ),
-                        ),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 40.0,
+                                  height: 40.0,
+                                  child: SpinKitDualRing(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    size: 40.0,
+                                  ),
+                                ),
+                              );
+                            }
+                            List<OrdersRecord> columnOrdersRecordList =
+                                snapshot.data!;
+                            // Return an empty Container when the item does not exist.
+                            if (snapshot.data!.isEmpty) {
+                              return Container();
+                            }
+                            final columnOrdersRecord =
+                                columnOrdersRecordList.isNotEmpty
+                                    ? columnOrdersRecordList.first
+                                    : null;
+
+                            return Column(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.0, -1.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 24.0, 0.0, 24.0),
-                                      child: FlutterFlowChoiceChips(
-                                        options: [
-                                          ChipData(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '5s3kp7pc' /* Atiende servicios */,
-                                              ),
-                                              Icons.build)
-                                        ],
-                                        onChanged: (val) async {
-                                          safeSetState(() =>
-                                              _model.choiceChipsValue =
-                                                  val?.firstOrNull);
-                                          context.pushNamed(
-                                              B4SolicitudesWidget.routeName);
-                                        },
-                                        selectedChipStyle: ChipStyle(
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Baloo 2',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                          iconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
-                                          iconSize: 30.0,
-                                          labelPadding: EdgeInsets.all(14.0),
-                                          elevation: 0.0,
-                                          borderRadius:
-                                              BorderRadius.circular(24.0),
-                                        ),
-                                        unselectedChipStyle: ChipStyle(
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Baloo 2',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                          iconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
-                                          iconSize: 20.0,
-                                          labelPadding:
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 4.0, 0.0, 4.0),
-                                          elevation: 0.0,
-                                          borderRadius:
-                                              BorderRadius.circular(33.0),
+                                                  0.0, 0.0, 5.0, 0.0),
+                                          child: Icon(
+                                            FFIcons.kmapPin,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 30.0,
+                                          ),
                                         ),
-                                        chipSpacing: 0.0,
-                                        rowSpacing: 12.0,
-                                        multiselect: false,
-                                        alignment: WrapAlignment.start,
-                                        controller: _model
-                                                .choiceChipsValueController ??=
-                                            FormFieldController<List<String>>(
-                                          [],
-                                        ),
-                                        wrapped: false,
                                       ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'qzilde5c' /* Bahía Blanca */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelSmall
+                                              .override(
+                                                fontFamily: 'Baloo 2',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                fontSize: 20.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ),
+                                    ].addToStart(SizedBox(width: 0.0)),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, -1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 24.0, 0.0, 24.0),
+                                              child: FlutterFlowChoiceChips(
+                                                options: [
+                                                  ChipData(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '5s3kp7pc' /* Atiende servicios */,
+                                                      ),
+                                                      Icons.build)
+                                                ],
+                                                onChanged: (columnOrdersRecord
+                                                            ?.fid ==
+                                                        valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.fid,
+                                                            ''))
+                                                    ? null
+                                                    : (val) async {
+                                                        safeSetState(() => _model
+                                                                .choiceChipsValue =
+                                                            val?.firstOrNull);
+                                                        context.pushNamed(
+                                                            B4SolicitudesWidget
+                                                                .routeName);
+                                                      },
+                                                selectedChipStyle: ChipStyle(
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Baloo 2',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        fontSize: 20.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  iconColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
+                                                  iconSize: 30.0,
+                                                  labelPadding:
+                                                      EdgeInsets.all(14.0),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24.0),
+                                                ),
+                                                unselectedChipStyle: ChipStyle(
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Baloo 2',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        fontSize: 20.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  iconColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
+                                                  iconSize: 20.0,
+                                                  labelPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(4.0, 4.0,
+                                                              0.0, 4.0),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          33.0),
+                                                ),
+                                                chipSpacing: 0.0,
+                                                rowSpacing: 12.0,
+                                                multiselect: false,
+                                                alignment: WrapAlignment.start,
+                                                controller: _model
+                                                        .choiceChipsValueController ??=
+                                                    FormFieldController<
+                                                        List<String>>(
+                                                  [],
+                                                ),
+                                                wrapped: false,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
+                              ]
+                                  .divide(SizedBox(height: 0.0))
+                                  .addToStart(SizedBox(height: 5.0)),
+                            );
+                          },
                         ),
-                      ]
-                          .divide(SizedBox(height: 0.0))
-                          .addToStart(SizedBox(height: 5.0)),
+                      ),
                     ),
                   ),
                 ),

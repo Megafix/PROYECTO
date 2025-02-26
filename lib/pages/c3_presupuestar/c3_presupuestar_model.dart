@@ -1,25 +1,9 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
-import '/components/c4_presupuesto_exitoso/c4_presupuesto_exitoso_widget.dart';
-import '/flutter_flow/flutter_flow_count_controller.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'c3_presupuestar_widget.dart' show C3PresupuestarWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class C3PresupuestarModel extends FlutterFlowModel<C3PresupuestarWidget> {
   ///  Local state fields for this page.
@@ -34,6 +18,8 @@ class C3PresupuestarModel extends FlutterFlowModel<C3PresupuestarWidget> {
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
+  // Stores action output result for [Backend Call - API (mercadopago)] action in Button widget.
+  ApiCallResponse? cobro;
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;
@@ -104,4 +90,7 @@ class C3PresupuestarModel extends FlutterFlowModel<C3PresupuestarWidget> {
     textFieldFocusNode2?.dispose();
     textController6?.dispose();
   }
+
+  /// Action blocks.
+  Future test(BuildContext context) async {}
 }

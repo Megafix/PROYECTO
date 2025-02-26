@@ -3,12 +3,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'a73_cambiar_contrasena_model.dart';
 export 'a73_cambiar_contrasena_model.dart';
 
@@ -323,9 +319,7 @@ class _A73CambiarContrasenaWidgetState
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.newPasswordTextFieldTextController.text ==
-                                                                          null ||
-                                                                      _model.newPasswordTextFieldTextController
+                                                              _model.newPasswordTextFieldTextController
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -530,9 +524,7 @@ class _A73CambiarContrasenaWidgetState
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.confirmPasswordTextFieldTextController.text ==
-                                                                          null ||
-                                                                      _model.confirmPasswordTextFieldTextController
+                                                              _model.confirmPasswordTextFieldTextController
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(

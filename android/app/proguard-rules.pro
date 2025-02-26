@@ -8,6 +8,7 @@
 -dontwarn javax.annotation.concurrent.GuardedBy
 -dontwarn org.bouncycastle.jce.provider.BouncyCastleProvider
 -dontwarn org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider
+-keep class org.xmlpull.v1.** { *; }
 -dontwarn com.stripe.**
 -ignorewarnings
 -dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivity$g
@@ -15,5 +16,6 @@
 -dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter$Error
 -dontwarn com.stripe.android.pushProvisioning.PushProvisioningActivityStarter
 -dontwarn com.stripe.android.pushProvisioning.PushProvisioningEphemeralKeyProvider
+
 
 
