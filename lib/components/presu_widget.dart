@@ -4,12 +4,9 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'presu_model.dart';
 export 'presu_model.dart';
 
@@ -184,7 +181,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 ==
                               'CONSTRUCCIÓN Y ARQUITECTURA') {
                             return (getJsonField(
@@ -194,7 +191,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 == 'ELECTRICISTA') {
                             return (getJsonField(
                               columnExcelResponse.jsonBody,
@@ -202,7 +199,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 ==
                               'TECNICO DE AIRE') {
                             return (getJsonField(
@@ -211,7 +208,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 == 'DECORACION') {
                             return (getJsonField(
                               columnExcelResponse.jsonBody,
@@ -219,7 +216,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 == 'PLOMERO') {
                             return (getJsonField(
                               columnExcelResponse.jsonBody,
@@ -227,7 +224,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 == 'GASISTA') {
                             return (getJsonField(
                               columnExcelResponse.jsonBody,
@@ -235,7 +232,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 == 'ALBAÑIL') {
                             return (getJsonField(
                               columnExcelResponse.jsonBody,
@@ -243,7 +240,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 == 'TECHISTA') {
                             return (getJsonField(
                               columnExcelResponse.jsonBody,
@@ -251,7 +248,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 ==
                               'JARDINERIA Y PAISAJISMO') {
                             return (getJsonField(
@@ -260,7 +257,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 == 'CARPINTERO') {
                             return (getJsonField(
                               columnExcelResponse.jsonBody,
@@ -268,7 +265,7 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else if (_model.dropDownValue1 ==
                               'PEQUEÑOS ARREGLOS') {
                             return (getJsonField(
@@ -277,12 +274,12 @@ class _PresuWidgetState extends State<PresuWidget> {
                               true,
                             ) as List)
                                 .map<String>((s) => s.toString())
-                                .toList()!;
+                                .toList();
                           } else {
                             return columnExcelResponse.jsonBody;
                           }
                         }()
-                            .where((e) => widget!.parameter1!)
+                            .where((e) => widget.parameter1!)
                             .toList(),
                         onChanged: (val) =>
                             safeSetState(() => _model.dropDownValue2 = val),

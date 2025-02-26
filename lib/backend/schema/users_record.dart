@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -61,6 +60,11 @@ class UsersRecord extends FirestoreRecord {
   String get photoUrl => _photoUrl ?? '';
   bool hasPhotoUrl() => _photoUrl != null;
 
+  // "fid" field.
+  String? _fid;
+  String get fid => _fid ?? '';
+  bool hasFid() => _fid != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -71,6 +75,7 @@ class UsersRecord extends FirestoreRecord {
     _password = snapshotData['password'] as String?;
     _userid = snapshotData['userid'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
+    _fid = snapshotData['fid'] as String?;
   }
 
   static CollectionReference get collection => FirebaseFirestore.instanceFor(
@@ -117,6 +122,7 @@ Map<String, dynamic> createUsersRecordData({
   String? password,
   String? userid,
   String? photoUrl,
+  String? fid,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -129,6 +135,7 @@ Map<String, dynamic> createUsersRecordData({
       'password': password,
       'userid': userid,
       'photo_url': photoUrl,
+      'fid': fid,
     }.withoutNulls,
   );
 
@@ -148,7 +155,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.role == e2?.role &&
         e1?.password == e2?.password &&
         e1?.userid == e2?.userid &&
-        e1?.photoUrl == e2?.photoUrl;
+        e1?.photoUrl == e2?.photoUrl &&
+        e1?.fid == e2?.fid;
   }
 
   @override
@@ -161,7 +169,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.role,
         e?.password,
         e?.userid,
-        e?.photoUrl
+        e?.photoUrl,
+        e?.fid
       ]);
 
   @override

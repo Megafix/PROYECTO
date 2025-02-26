@@ -4,12 +4,10 @@ import '/components/a3_6_olvide_contrasea/a36_olvide_contrasea_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'a35_inicia_secion_model.dart';
 export 'a35_inicia_secion_model.dart';
@@ -316,9 +314,6 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                                       Color>(
                                                                 _model.emailTextFieldTextController
                                                                                 .text ==
-                                                                            null ||
-                                                                        _model.emailTextFieldTextController
-                                                                                .text ==
                                                                             ''
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
@@ -509,9 +504,6 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                                       Color>(
                                                                 _model.passwordTextFieldTextController
                                                                                 .text ==
-                                                                            null ||
-                                                                        _model.passwordTextFieldTextController
-                                                                                .text ==
                                                                             ''
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
@@ -583,14 +575,8 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                             child: FFButtonWidget(
                                               onPressed: ((_model.emailTextFieldTextController
                                                                   .text ==
-                                                              null ||
-                                                          _model.emailTextFieldTextController
-                                                                  .text ==
                                                               '') &&
                                                       (_model.passwordTextFieldTextController
-                                                                  .text ==
-                                                              null ||
-                                                          _model.passwordTextFieldTextController
                                                                   .text ==
                                                               ''))
                                                   ? null

@@ -7,14 +7,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:ui';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:provider/provider.dart';
 import 'c6_perfil_t_model.dart';
 export 'c6_perfil_t_model.dart';
 
@@ -463,9 +457,6 @@ class _C6PerfilTWidgetState extends State<C6PerfilTWidget> {
                                                                       Color>(
                                                                 _model.userNameTextFieldTextController
                                                                                 .text ==
-                                                                            null ||
-                                                                        _model.userNameTextFieldTextController
-                                                                                .text ==
                                                                             ''
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
@@ -653,9 +644,7 @@ class _C6PerfilTWidgetState extends State<C6PerfilTWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.emailTextFieldTextController1.text ==
-                                                                          null ||
-                                                                      _model.emailTextFieldTextController1
+                                                              _model.emailTextFieldTextController1
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -841,9 +830,6 @@ class _C6PerfilTWidgetState extends State<C6PerfilTWidget> {
                                                           color: valueOrDefault<
                                                               Color>(
                                                             _model.emailTextFieldTextController2
-                                                                            .text ==
-                                                                        null ||
-                                                                    _model.emailTextFieldTextController2
                                                                             .text ==
                                                                         ''
                                                                 ? FlutterFlowTheme.of(

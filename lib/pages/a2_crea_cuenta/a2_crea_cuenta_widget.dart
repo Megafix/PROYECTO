@@ -4,15 +4,10 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'a2_crea_cuenta_model.dart';
 export 'a2_crea_cuenta_model.dart';
@@ -349,9 +344,7 @@ class _A2CreaCuentaWidgetState extends State<A2CreaCuentaWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.userNameTextFieldTextController.text ==
-                                                                          null ||
-                                                                      _model.userNameTextFieldTextController
+                                                              _model.userNameTextFieldTextController
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -542,9 +535,7 @@ class _A2CreaCuentaWidgetState extends State<A2CreaCuentaWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.emailTextFieldTextController.text ==
-                                                                          null ||
-                                                                      _model.emailTextFieldTextController
+                                                              _model.emailTextFieldTextController
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -741,9 +732,7 @@ class _A2CreaCuentaWidgetState extends State<A2CreaCuentaWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.numberTextFieldTextController.text ==
-                                                                          null ||
-                                                                      _model.numberTextFieldTextController
+                                                              _model.numberTextFieldTextController
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -936,9 +925,7 @@ class _A2CreaCuentaWidgetState extends State<A2CreaCuentaWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.passwordTextFieldTextController.text ==
-                                                                          null ||
-                                                                      _model.passwordTextFieldTextController
+                                                              _model.passwordTextFieldTextController
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -1013,29 +1000,16 @@ class _A2CreaCuentaWidgetState extends State<A2CreaCuentaWidget> {
                                       children: [
                                         Expanded(
                                           child: FFButtonWidget(
-                                            onPressed: ((_model
-                                                                .userNameTextFieldTextController
-                                                                .text ==
-                                                            null ||
-                                                        _model.userNameTextFieldTextController
+                                            onPressed: ((_model.userNameTextFieldTextController
                                                                 .text ==
                                                             '') &&
                                                     (_model.emailTextFieldTextController
                                                                 .text ==
-                                                            null ||
-                                                        _model.emailTextFieldTextController
-                                                                .text ==
                                                             '') &&
                                                     (_model.numberTextFieldTextController
                                                                 .text ==
-                                                            null ||
-                                                        _model.numberTextFieldTextController
-                                                                .text ==
                                                             '') &&
                                                     (_model.passwordTextFieldTextController
-                                                                .text ==
-                                                            null ||
-                                                        _model.passwordTextFieldTextController
                                                                 .text ==
                                                             ''))
                                                 ? null

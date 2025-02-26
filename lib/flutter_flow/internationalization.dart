@@ -148,141 +148,142 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '2044raxp': {
       'es': 'Crea un cuenta',
-      'en': '',
+      'en': 'Create an account',
     },
     'kvk96b9a': {
       'es': 'Ya tengo una cuenta, Inicio sesion',
-      'en': '',
+      'en': 'I already have an account, Login',
     },
     '5fme7ze2': {
       'es': 'Quiero registrarme como freelancer',
-      'en': '',
+      'en': 'I want to register as a freelancer',
     },
     'e9n9xv7z': {
       'es': 'Home',
-      'en': '',
+      'en': 'Home',
     },
   },
   // A2_CreaCuenta
   {
     'fqhfxosd': {
       'es': 'Crea una Cuenta',
-      'en': '',
+      'en': 'Create an Account',
     },
     'w8fbq6qd': {
       'es': 'Nombre de Usuario',
-      'en': '',
+      'en': 'User name',
     },
     'qyz8jn8k': {
       'es': 'Crea tu nombre de usuario',
-      'en': '',
+      'en': 'Create your username',
     },
     '5ejt2igx': {
       'es': 'Email ',
-      'en': '',
+      'en': 'E-mail',
     },
     '1k2s07d4': {
       'es': 'Ingressa tu mail o numero',
-      'en': '',
+      'en': 'Enter your email or number',
     },
     'duzws8jh': {
       'es': 'Numero de telefono',
-      'en': '',
+      'en': 'Phone number',
     },
     '0rdomdr9': {
       'es': 'Ingressa tu mail o numero',
-      'en': '',
+      'en': 'Enter your email or number',
     },
     '8hrnyurr': {
       'es': 'Contraseña',
-      'en': '',
+      'en': 'Password',
     },
     '5ta75wx9': {
       'es': 'Crea tu contraseña',
-      'en': '',
+      'en': 'Create your password',
     },
     '7318gst0': {
       'es': 'Crea tu cuenta',
-      'en': '',
+      'en': 'Create your account',
     },
     'eqdiv2sl': {
       'es': 'O usa otro metodo',
-      'en': '',
+      'en': 'Or use another method',
     },
     'nt2a4i5y': {
       'es': 'Registrate con Google',
-      'en': '',
+      'en': 'Sign up with Google',
     },
     '18pahsw4': {
       'es': 'Registrate con  Facebook',
-      'en': '',
+      'en': 'Sign up with Facebook',
     },
     'tj5ofugi': {
       'es': 'Tengo una cuenta',
-      'en': '',
+      'en': 'I have an account',
     },
     '96k4zm5b': {
       'es': 'Iniciar Sesion',
-      'en': '',
+      'en': 'Login',
     },
     'i6bq0pen': {
       'es': 'Home',
-      'en': '',
+      'en': 'Home',
     },
   },
   // A3_Verificacion
   {
     'm8vt32wl': {
       'es': 'Codigo de verificacion',
-      'en': '',
+      'en': 'Verification code',
     },
     'j0wt8bqq': {
       'es':
           'Le hemos enviado el código de verificación. Por favor ingrese el código para poder seguir adelante.',
-      'en': '',
+      'en':
+          'We have sent you the verification code. Please enter the code to proceed.',
     },
     'am0lz1tt': {
       'es': '+54-291 XXX-XXX',
-      'en': '',
+      'en': '+54-291 XXX-XXX',
     },
     'vfbmvgvb': {
       'es': 'Verificar',
-      'en': '',
+      'en': 'Verify',
     },
     '5iqum420': {
       'es': 'No recibiste el codigo? ',
-      'en': '',
+      'en': 'Didn\'t receive the code?',
     },
     '7axmi8vz': {
       'es': 'Reenviar',
-      'en': '',
+      'en': 'Forward',
     },
     'd4d5qm5u': {
       'es': 'Verificacion',
-      'en': '',
+      'en': 'Verification',
     },
     'hvh480nv': {
       'es': 'Home',
-      'en': '',
+      'en': 'Home',
     },
   },
   // A4_Inicio
   {
     '3uolrspq': {
       'es': '3',
-      'en': '',
+      'en': '3',
     },
     'csw0gejj': {
       'es': 'Que servicios necesita',
-      'en': '',
+      'en': 'What services do you need?',
     },
     'bnvbaxml': {
       'es': 'Bahía Blanca',
-      'en': '',
+      'en': 'Bahia Blanca',
     },
     'xka1s61r': {
       'es': 'Pide tu Presupuesto',
-      'en': '',
+      'en': 'Request your quote',
     },
     'vc9mj8g7': {
       'es': '',
@@ -290,800 +291,801 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '25clpfsh': {
       'es': 'Plomero',
-      'en': '',
+      'en': 'Plumber',
     },
     'myfnyhkg': {
       'es': 'Gasista',
-      'en': '',
+      'en': 'Gas fitter',
     },
     'z5sur9ub': {
       'es': 'Albañil',
-      'en': '',
+      'en': 'Construction worker',
     },
     'trja1zku': {
       'es': 'Pintura',
-      'en': '',
+      'en': 'Paint',
     },
     'wu1f04b3': {
       'es': 'Electricista',
-      'en': '',
+      'en': 'Electrician',
     },
     'ltruu3af': {
       'es': 'Carpinteria',
-      'en': '',
+      'en': 'Carpentry',
     },
     'hxu5elv5': {
       'es': 'Calefaccion',
-      'en': '',
+      'en': 'Heating',
     },
     '1owyvy7y': {
       'es': 'Techista',
-      'en': '',
+      'en': 'Roofer',
     },
     'yuxvfcy0': {
       'es': 'Inicio',
-      'en': '',
+      'en': 'Start',
     },
   },
   // A8_MisServicios
   {
     '1f9z3d8k': {
       'es': 'Mis Servicios',
-      'en': '',
+      'en': 'My Services',
     },
     '4wf6hsis': {
       'es': 'Page Title',
-      'en': '',
+      'en': 'Page Title',
     },
     '460io703': {
       'es': 'Mis Servicios',
-      'en': '',
+      'en': 'My Services',
     },
   },
   // A9_Detalles
   {
     'nbdnof56': {
       'es': 'Detalles',
-      'en': '',
+      'en': 'Details',
     },
     '17vlqoz1': {
       'es': 'Reportar',
-      'en': '',
+      'en': 'Report',
     },
     '3kuij1ru': {
       'es': '(Usted debera comprar los materiales )',
-      'en': '',
+      'en': '(You will have to buy the materials)',
     },
     '3ir4sfe6': {
       'es': 'Dia de inicio:',
-      'en': '',
+      'en': 'Start day:',
     },
     'm2hz30x3': {
       'es': 'Hora',
-      'en': '',
+      'en': 'Hour',
     },
     'ot6bd7b1': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     'a8drvd0h': {
       'es': '08',
-      'en': '',
+      'en': '08',
     },
     '30kswp23': {
       'es': '09',
-      'en': '',
+      'en': '09',
     },
     '2w5koe35': {
       'es': '10',
-      'en': '',
+      'en': '10',
     },
     'x7alto52': {
       'es': '11',
-      'en': '',
+      'en': '11',
     },
     'b0ff6z3w': {
       'es': '12',
-      'en': '',
+      'en': '12',
     },
     '75g6bsxz': {
       'es': '13',
-      'en': '',
+      'en': '13',
     },
     'nmau97o3': {
       'es': '14',
-      'en': '',
+      'en': '14',
     },
     '7nssp2f4': {
       'es': '15',
-      'en': '',
+      'en': '15',
     },
     'lsnnnl16': {
       'es': '16',
-      'en': '',
+      'en': '16',
     },
     '6l2wd0db': {
       'es': '17',
-      'en': '',
+      'en': '17',
     },
     'nsbdtlum': {
       'es': '18',
-      'en': '',
+      'en': '18',
     },
     'h9o56h3o': {
       'es': '19',
-      'en': '',
+      'en': '19',
     },
     '3tuiq0dt': {
       'es': '20',
-      'en': '',
+      'en': '20',
     },
     'tjqdw4ef': {
       'es': 'Dia',
-      'en': '',
+      'en': 'Day',
     },
     'c94e7m64': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     'lqgflsly': {
       'es': '1',
-      'en': '',
+      'en': '1',
     },
     'qwp9e6x9': {
       'es': '2',
-      'en': '',
+      'en': '2',
     },
     'q47avded': {
       'es': '3',
-      'en': '',
+      'en': '3',
     },
     'vjvs68be': {
       'es': '4',
-      'en': '',
+      'en': '4',
     },
     'cz015361': {
       'es': '5',
-      'en': '',
+      'en': '5',
     },
     '12hilwq0': {
       'es': '6',
-      'en': '',
+      'en': '6',
     },
     'vivql8co': {
       'es': '7',
-      'en': '',
+      'en': '7',
     },
     'u9h0vlpm': {
       'es': '8',
-      'en': '',
+      'en': '8',
     },
     'o9908n35': {
       'es': '9',
-      'en': '',
+      'en': '9',
     },
     'fexvwoz9': {
       'es': '10',
-      'en': '',
+      'en': '10',
     },
     '2bvnv99o': {
       'es': '11',
-      'en': '',
+      'en': '11',
     },
     '0lo463sc': {
       'es': '12',
-      'en': '',
+      'en': '12',
     },
     'u31qf5cf': {
       'es': '13',
-      'en': '',
+      'en': '13',
     },
     '851yv14v': {
       'es': '14',
-      'en': '',
+      'en': '14',
     },
     'k5xvi440': {
       'es': '15',
-      'en': '',
+      'en': '15',
     },
     's7dkdtje': {
       'es': '16',
-      'en': '',
+      'en': '16',
     },
     'r5qy9teg': {
       'es': '17',
-      'en': '',
+      'en': '17',
     },
     'om91fhc9': {
       'es': '18',
-      'en': '',
+      'en': '18',
     },
     'a3lc6pwt': {
       'es': '19',
-      'en': '',
+      'en': '19',
     },
     'gc6lk3fj': {
       'es': '20',
-      'en': '',
+      'en': '20',
     },
     '57b57pu6': {
       'es': '21',
-      'en': '',
+      'en': '21',
     },
     'z6jenkqh': {
       'es': '22',
-      'en': '',
+      'en': '22',
     },
     'nv82guc5': {
       'es': '23',
-      'en': '',
+      'en': '23',
     },
     'rfee2419': {
       'es': '24',
-      'en': '',
+      'en': '24',
     },
     'jm1efrzp': {
       'es': '25',
-      'en': '',
+      'en': '25',
     },
     'iqdsce4g': {
       'es': '26',
-      'en': '',
+      'en': '26',
     },
     'q7csaafl': {
       'es': '27',
-      'en': '',
+      'en': '27',
     },
     'xa2xedrq': {
       'es': '28',
-      'en': '',
+      'en': '28',
     },
     'xl4fy6pe': {
       'es': '29',
-      'en': '',
+      'en': '29',
     },
     'v686hz2a': {
       'es': '30',
-      'en': '',
+      'en': '30',
     },
     'tf7fv6g1': {
       'es': '31',
-      'en': '',
+      'en': '31',
     },
     'j6wf049x': {
       'es': 'Mes',
-      'en': '',
+      'en': 'Month',
     },
     'rwb9kvvn': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     '94390f01': {
       'es': 'Enero',
-      'en': '',
+      'en': 'January',
     },
     'hbxlwviq': {
       'es': 'Febrero',
-      'en': '',
+      'en': 'February',
     },
     'yfqfuqf9': {
       'es': 'Marzo',
-      'en': '',
+      'en': 'March',
     },
     'c2iu15aa': {
       'es': 'Abril',
-      'en': '',
+      'en': 'April',
     },
     'a666dx25': {
       'es': 'Mayo',
-      'en': '',
+      'en': 'May',
     },
     'iccc31ui': {
       'es': 'Junio',
-      'en': '',
+      'en': 'June',
     },
     '0kqzqsbq': {
       'es': 'Julio',
-      'en': '',
+      'en': 'July',
     },
     '3wu86jpd': {
       'es': 'Agosto',
-      'en': '',
+      'en': 'August',
     },
     'xk43dekn': {
       'es': 'Septiembre',
-      'en': '',
+      'en': 'September',
     },
     'y15usao5': {
       'es': 'Octubre',
-      'en': '',
+      'en': 'October',
     },
     'la7bd2sq': {
       'es': 'Noviembre',
-      'en': '',
+      'en': 'November',
     },
     '6438vguq': {
       'es': 'Diciembre',
-      'en': '',
+      'en': 'December',
     },
     'yegmwwpe': {
       'es': 'Dia de finalizacion:',
-      'en': '',
+      'en': 'Completion date:',
     },
     '83nfh6wo': {
       'es': 'Hora',
-      'en': '',
+      'en': 'Hour',
     },
     'pm1nhsc3': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     'ldit92l7': {
       'es': '08',
-      'en': '',
+      'en': '08',
     },
     'px3an10y': {
       'es': '09',
-      'en': '',
+      'en': '09',
     },
     'jq3k4mmp': {
       'es': '10',
-      'en': '',
+      'en': '10',
     },
     'phog151f': {
       'es': '11',
-      'en': '',
+      'en': '11',
     },
     'wt9zjwk5': {
       'es': '12',
-      'en': '',
+      'en': '12',
     },
     '3eib3d30': {
       'es': '13',
-      'en': '',
+      'en': '13',
     },
     '462g4o5f': {
       'es': '14',
-      'en': '',
+      'en': '14',
     },
     'dl24sfre': {
       'es': '15',
-      'en': '',
+      'en': '15',
     },
     'lamx3g1n': {
       'es': '16',
-      'en': '',
+      'en': '16',
     },
     '7hfy3c3o': {
       'es': '17',
-      'en': '',
+      'en': '17',
     },
     'v0zlr1a2': {
       'es': '18',
-      'en': '',
+      'en': '18',
     },
     'fnl73g9j': {
       'es': '19',
-      'en': '',
+      'en': '19',
     },
     'spm8zd0l': {
       'es': '20',
-      'en': '',
+      'en': '20',
     },
     '9ok1v49o': {
       'es': 'Dia',
-      'en': '',
+      'en': 'Day',
     },
     'y6y4zxye': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     '70db3yvu': {
       'es': '1',
-      'en': '',
+      'en': '1',
     },
     'vor49tap': {
       'es': '2',
-      'en': '',
+      'en': '2',
     },
     'tgbihqrn': {
       'es': '3',
-      'en': '',
+      'en': '3',
     },
     'm3h6azq6': {
       'es': '4',
-      'en': '',
+      'en': '4',
     },
     '8zu50er1': {
       'es': '5',
-      'en': '',
+      'en': '5',
     },
     '8t3khwg6': {
       'es': '6',
-      'en': '',
+      'en': '6',
     },
     'whdt4im1': {
       'es': '7',
-      'en': '',
+      'en': '7',
     },
     't091pvqo': {
       'es': '8',
-      'en': '',
+      'en': '8',
     },
     'esqq9v34': {
       'es': '9',
-      'en': '',
+      'en': '9',
     },
     'yld9hqpi': {
       'es': '10',
-      'en': '',
+      'en': '10',
     },
     'el98is96': {
       'es': '11',
-      'en': '',
+      'en': '11',
     },
     'g726xp1u': {
       'es': '12',
-      'en': '',
+      'en': '12',
     },
     'n2pfp6x2': {
       'es': '13',
-      'en': '',
+      'en': '13',
     },
     '1kfk5a34': {
       'es': '14',
-      'en': '',
+      'en': '14',
     },
     'lcrfl05o': {
       'es': '15',
-      'en': '',
+      'en': '15',
     },
     '4ghd3wjt': {
       'es': '16',
-      'en': '',
+      'en': '16',
     },
     'rydz66zn': {
       'es': '17',
-      'en': '',
+      'en': '17',
     },
     'rcpu7jjq': {
       'es': '18',
-      'en': '',
+      'en': '18',
     },
     'vkipp806': {
       'es': '19',
-      'en': '',
+      'en': '19',
     },
     'zuap2wn4': {
       'es': '20',
-      'en': '',
+      'en': '20',
     },
     'xv15aghn': {
       'es': '21',
-      'en': '',
+      'en': '21',
     },
     'exdw1puw': {
       'es': '22',
-      'en': '',
+      'en': '22',
     },
     'oy83itii': {
       'es': '23',
-      'en': '',
+      'en': '23',
     },
     'yczvrcme': {
       'es': '24',
-      'en': '',
+      'en': '24',
     },
     'd3td6kdm': {
       'es': '25',
-      'en': '',
+      'en': '25',
     },
     'mt3ln6qu': {
       'es': '26',
-      'en': '',
+      'en': '26',
     },
     '3xk229mz': {
       'es': '27',
-      'en': '',
+      'en': '27',
     },
     '2urmuvoq': {
       'es': '28',
-      'en': '',
+      'en': '28',
     },
     '9xn548rm': {
       'es': '29',
-      'en': '',
+      'en': '29',
     },
     'enhlzxqc': {
       'es': '30',
-      'en': '',
+      'en': '30',
     },
     'u0ptg782': {
       'es': '31',
-      'en': '',
+      'en': '31',
     },
     'ulc3c07j': {
       'es': 'Mes',
-      'en': '',
+      'en': 'Month',
     },
     '3px37nvz': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     'namxb81p': {
       'es': 'Enero',
-      'en': '',
+      'en': 'January',
     },
     'y7lzvkbd': {
       'es': 'Febrero',
-      'en': '',
+      'en': 'February',
     },
     'bhwwo9qm': {
       'es': 'Marzo',
-      'en': '',
+      'en': 'March',
     },
     '36mz2s2a': {
       'es': 'Abril',
-      'en': '',
+      'en': 'April',
     },
     'pldk8zts': {
       'es': 'Mayo',
-      'en': '',
+      'en': 'May',
     },
     '7kr3gf1a': {
       'es': 'Junio',
-      'en': '',
+      'en': 'June',
     },
     'mknp53wc': {
       'es': 'Julio',
-      'en': '',
+      'en': 'July',
     },
     '29ph77cc': {
       'es': 'Agosto',
-      'en': '',
+      'en': 'August',
     },
     'sx49i8wr': {
       'es': 'Septiembre',
-      'en': '',
+      'en': 'September',
     },
     'czfuiaao': {
       'es': 'Octubre',
-      'en': '',
+      'en': 'October',
     },
     'zhxomapt': {
       'es': 'Noviembre',
-      'en': '',
+      'en': 'November',
     },
     '2xchfv3m': {
       'es': 'Diciembre',
-      'en': '',
+      'en': 'December',
     },
     '8tggvu98': {
-      'es': '\n(Los profesionales no trabajaran en ausencia del cliente)',
-      'en': '',
+      'es':
+          '(Los horarios seleccionados se repetiran hasta el fin de la obra) (Los profesionales no trabajaran en ausencia del cliente)',
+      'en': '(Professionals will not work in the absence of the client)',
     },
     'jnvhy02y': {
       'es': '\$ ',
-      'en': '',
+      'en': '\$',
     },
     'h4s4qi5k': {
       'es': 'Termino y condiciones',
-      'en': '',
+      'en': 'Terms and conditions',
     },
     'i417us0h': {
       'es': 'Rechazar presupuesto',
-      'en': '',
+      'en': 'Reject budget',
     },
     'i1oj2yib': {
       'es': 'Home',
-      'en': '',
+      'en': 'Home',
     },
   },
   // A5_Presupuesto
   {
     'kjrv1t8v': {
       'es': 'Cuentanos que necesitas',
-      'en': '',
+      'en': 'Tell us what you need',
     },
     'y8183u7l': {
       'es': 'Tipo de servicio',
-      'en': '',
+      'en': 'Type of service',
     },
     'bwkdcjpu': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     'kr9fifa0': {
       'es': 'Albañileria',
-      'en': '',
+      'en': 'Masonry',
     },
     'zx81zgdu': {
       'es': 'Plomeria',
-      'en': '',
+      'en': 'Plumbing',
     },
     'hu3hupob': {
       'es': 'Gas',
-      'en': '',
+      'en': 'Gas',
     },
     '8h9eppvl': {
       'es': 'Electricidad',
-      'en': '',
+      'en': 'Electricity',
     },
     'i9eqvi5g': {
       'es': 'Jardineria',
-      'en': '',
+      'en': 'Gardening',
     },
     'k296cuc8': {
       'es': 'Durlock',
-      'en': '',
+      'en': 'Durlock',
     },
     'em1tdnu1': {
       'es': 'Techista',
-      'en': '',
+      'en': 'Roofer',
     },
     'oi6vimdv': {
       'es': 'Pintura',
-      'en': '',
+      'en': 'Paint',
     },
     '6nsdffm6': {
       'es': 'Instalacion de electrodomesticos',
-      'en': '',
+      'en': 'Installation of household appliances',
     },
     '6an6wq8h': {
       'es': 'Calefaccion',
-      'en': '',
+      'en': 'Heating',
     },
     'ngn0hv2l': {
       'es': 'Carpinteria',
-      'en': '',
+      'en': 'Carpentry',
     },
     '53bchvxu': {
       'es': 'Otro',
-      'en': '',
+      'en': 'Other',
     },
     'cax079yt': {
       'es': 'Cuentanos algun detalle',
-      'en': '',
+      'en': 'Tell us some details',
     },
     'ty8pzsqc': {
       'es': 'Envianos fotos',
-      'en': '',
+      'en': 'Send us photos',
     },
     '1srh01b5': {
       'es': 'Metodo de pago',
-      'en': '',
+      'en': 'Payment method',
     },
     'c86im4s5': {
       'es': 'Direccion',
-      'en': '',
+      'en': 'Address',
     },
     'wdcsyr9b': {
       'es': 'Hora',
-      'en': '',
+      'en': 'Hour',
     },
     '2tj5lcq5': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     'wikmozdq': {
       'es': '08',
-      'en': '',
+      'en': '08',
     },
     'cd3xkrie': {
       'es': '09',
-      'en': '',
+      'en': '09',
     },
     '4cnh9h0i': {
       'es': '10',
-      'en': '',
+      'en': '10',
     },
     'gu3jnlg3': {
       'es': '11',
-      'en': '',
+      'en': '11',
     },
     '0nu7m266': {
       'es': '12',
-      'en': '',
+      'en': '12',
     },
     'johjship': {
       'es': '13',
-      'en': '',
+      'en': '13',
     },
     '9fomzo1s': {
       'es': '14',
-      'en': '',
+      'en': '14',
     },
     'gvw58pm4': {
       'es': '15',
-      'en': '',
+      'en': '15',
     },
     'u3bbefjv': {
       'es': '16',
-      'en': '',
+      'en': '16',
     },
     't1qbc20j': {
       'es': '17',
-      'en': '',
+      'en': '17',
     },
     'x7h8aw3q': {
       'es': '18',
-      'en': '',
+      'en': '18',
     },
     'nqz1gxda': {
       'es': '19',
-      'en': '',
+      'en': '19',
     },
     '3lekwx6d': {
       'es': '20',
-      'en': '',
+      'en': '20',
     },
     'ylqt8b2o': {
       'es': 'Dia',
-      'en': '',
+      'en': 'Day',
     },
     '2wpgqp8i': {
       'es': 'Search...',
-      'en': '',
+      'en': 'Search...',
     },
     'zofqdxg7': {
       'es': '1',
-      'en': '',
+      'en': '1',
     },
     'wnhsi4ty': {
       'es': '2',
-      'en': '',
+      'en': '2',
     },
     '7fiseppa': {
       'es': '3',
-      'en': '',
+      'en': '3',
     },
     '9nlmp2yl': {
       'es': '4',
-      'en': '',
+      'en': '4',
     },
     'n3n3ncyu': {
       'es': '5',
-      'en': '',
+      'en': '5',
     },
     'mvy8gmpn': {
       'es': '6',
-      'en': '',
+      'en': '6',
     },
     'xwv80ljf': {
       'es': '7',
-      'en': '',
+      'en': '7',
     },
     'irdxw8cg': {
       'es': '8',
-      'en': '',
+      'en': '8',
     },
     'cp77fvez': {
       'es': '9',
-      'en': '',
+      'en': '9',
     },
     'uhdk0wpy': {
       'es': '10',
-      'en': '',
+      'en': '10',
     },
     'dudq0q6o': {
       'es': '11',
-      'en': '',
+      'en': '11',
     },
     'emo10omq': {
       'es': '12',
-      'en': '',
+      'en': '12',
     },
     'ls4vce40': {
       'es': '13',
-      'en': '',
+      'en': '13',
     },
     'iiaw6f27': {
       'es': '14',
-      'en': '',
+      'en': '14',
     },
     'c8dqz69x': {
       'es': '15',
-      'en': '',
+      'en': '14',
     },
     'tu8zk52j': {
       'es': '16',
@@ -3390,50 +3392,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'vkxriblo': {
       'es': 'Registro Exitoso',
-      'en': '',
+      'en': 'Registration Successful',
     },
     'h2xdozlk': {
       'es':
           '¡Felicitaciones! su cuenta ya creada.\nInicie sesión para obtener una experiencia increíble.',
-      'en': '',
+      'en':
+          'Congratulations! Your account is now created.\nSign in for an amazing experience.',
     },
     't4tt10im': {
       'es': 'Ir a inicio',
-      'en': '',
+      'en': 'Go to home',
     },
   },
   // A3-6_OlvideContrasea
   {
     '68da8o48': {
       'es': 'Olvide mi contraseña',
-      'en': '',
+      'en': 'I forgot my password',
     },
     'laq1e1na': {
       'es': 'Ingresa tu Email o Numero de telefono',
-      'en': '',
+      'en': 'Enter your email or phone number',
     },
     '4wi8kjyp': {
       'es': ' Email o Numero de telefono',
-      'en': '',
+      'en': 'Email or Phone Number',
     },
     '4ligppz0': {
       'es': 'Enviar Codigo',
-      'en': '',
+      'en': 'Send Code',
     },
   },
   // A7-5_Ubicacion
   {
     'wss38bpn': {
       'es': '¿Estás seguro de que deseas activar tu ubicación?',
-      'en': '',
+      'en': 'Are you sure you want to activate your location?',
     },
     '29xlhpns': {
       'es': 'Cancelar',
-      'en': '',
+      'en': 'Cancel',
     },
     'zuga39cj': {
       'es': 'Si, permitir',
-      'en': '',
+      'en': 'Yes, allow',
     },
   },
   // A7_CambiarMetodoPago
@@ -3645,55 +3648,55 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'b3u7as3r': {
       'es': 'Create Account',
-      'en': '',
+      'en': 'Create Account',
     },
     'ctqamqlc': {
       'es': 'Create your username',
-      'en': '',
+      'en': 'Create your username',
     },
     'umpm3yh5': {
       'es': 'Sign Up with Google',
-      'en': '',
+      'en': 'Sign Up with Google',
     },
     'u17s3o3i': {
       'es': 'Let\'s find the food you like',
-      'en': '',
+      'en': 'Let\'s find the food you like',
     },
     'm470nw6c': {
       'es': 'San Diego, CA',
-      'en': '',
+      'en': 'San Diego, CA',
     },
     'tkq1nhez': {
       'es': 'Recommended',
-      'en': '',
+      'en': 'Recommended',
     },
     'amak33fx': {
       'es': 'Cancel',
-      'en': '',
+      'en': 'Cancel',
     },
     '5hctr45y': {
       'es': 'Add to Cart',
-      'en': '',
+      'en': 'Add to Cart',
     },
     'fazi37bo': {
       'es': 'Get Discount',
-      'en': '',
+      'en': 'Get Discount',
     },
     '6on3f8zv': {
       'es': 'Enter voucher code',
-      'en': '',
+      'en': 'Enter voucher code',
     },
     'vc3k7k6z': {
       'es': 'Hamburgers',
-      'en': '',
+      'en': 'Hamburgers',
     },
     'cvmlykt8': {
       'es': 'On Progress',
-      'en': '',
+      'en': 'On Progress',
     },
     'ogz0ss6o': {
       'es': 'Edit Profile',
-      'en': '',
+      'en': 'Edit Profile',
     },
     'emrgmgmz': {
       'es': '',

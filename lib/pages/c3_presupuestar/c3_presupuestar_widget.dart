@@ -9,16 +9,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'c3_presupuestar_model.dart';
 export 'c3_presupuestar_model.dart';
 
@@ -425,131 +422,122 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                   : null;
 
                                           return FFButtonWidget(
-                                            onPressed: () async {
-                                              await authManager.refreshUser();
-                                              if (currentUserEmailVerified) {
-                                                await queryOrdersRecordOnce(
-                                                  queryBuilder:
-                                                      (ordersRecord) =>
-                                                          ordersRecord.where(
-                                                    'orderid',
-                                                    isEqualTo: _model
-                                                        .textController1.text,
-                                                  ),
-                                                  singleRecord: true,
-                                                ).then((s) => s.firstOrNull);
+                                            onPressed: ((_model.textController1
+                                                                .text ==
+                                                            '') ||
+                                                    (_model.dropDownValue1 ==
+                                                            null ||
+                                                        _model.dropDownValue1 ==
+                                                            '') ||
+                                                    (_model.dropDownTT1Value ==
+                                                            null ||
+                                                        _model.dropDownTT1Value ==
+                                                            '') ||
+                                                    (_model.textFieldCTextController
+                                                                .text ==
+                                                            '') ||
+                                                    (_model.countControllerValue ==
+                                                        null) ||
+                                                    (_model.textController6
+                                                                .text ==
+                                                            ''))
+                                                ? null
+                                                : () async {
+                                                    await authManager
+                                                        .refreshUser();
+                                                    var _shouldSetState = false;
+                                                    if (currentUserEmailVerified) {
+                                                      _model.cobro =
+                                                          await MercadopagoCall
+                                                              .call();
 
-                                                await buttonOrdersRecord!
-                                                    .reference
-                                                    .update(
-                                                        createOrdersRecordData(
-                                                  services:
-                                                      '${_model.dropDownValue1}${_model.dropDownValue2}${_model.dropDownValue3}${_model.dropDownValue4}',
-                                                  status: 'Aprobacion',
-                                                  materials: _model
-                                                      .textController6.text,
-                                                  workPrise:
-                                                      valueOrDefault<String>(
-                                                    (valueOrDefault<String>(
-                                                              ExcelCall.costo(
-                                                                stackExcelResponse
-                                                                    .jsonBody,
-                                                              )
-                                                                  ?.contains(_model
-                                                                      .dropDownTT1Value)
-                                                                  ?.toString(),
-                                                              '0',
-                                                            ) *
-                                                            valueOrDefault<int>(
-                                                              int.tryParse(_model
-                                                                  .textFieldCTextController
-                                                                  .text),
-                                                              0,
-                                                            )) +
-                                                        (valueOrDefault<String>(
-                                                              ExcelCall.costo(
-                                                                stackExcelResponse
-                                                                    .jsonBody,
-                                                              )
-                                                                  ?.contains(_model
-                                                                      .dropDownTT2Value)
-                                                                  ?.toString(),
-                                                              '0',
-                                                            ) *
-                                                            int.parse(_model
-                                                                .textFieldCTextController
-                                                                .text)) +
-                                                        (valueOrDefault<String>(
-                                                              ExcelCall.costo(
-                                                                stackExcelResponse
-                                                                    .jsonBody,
-                                                              )
-                                                                  ?.contains(_model
-                                                                      .dropDownTT3Value)
-                                                                  ?.toString(),
-                                                              '0',
-                                                            ) *
-                                                            int.parse(_model
-                                                                .textFieldC3TextController
-                                                                .text)) +
-                                                        (valueOrDefault<String>(
-                                                              ExcelCall.costo(
-                                                                stackExcelResponse
-                                                                    .jsonBody,
-                                                              )
-                                                                  ?.contains(_model
-                                                                      .dropDownTT4Value)
-                                                                  ?.toString(),
-                                                              '0',
-                                                            ) *
-                                                            int.parse(_model
-                                                                .textFieldC4TextController
-                                                                .text)),
-                                                    '0',
-                                                  ),
-                                                  workHour: _model
-                                                      .countControllerValue
-                                                      ?.toString(),
-                                                ));
-                                              } else {
-                                                context.pushNamed(
-                                                    C1InicioTasadorWidget
-                                                        .routeName);
+                                                      _shouldSetState = true;
+                                                      await queryOrdersRecordOnce(
+                                                        queryBuilder:
+                                                            (ordersRecord) =>
+                                                                ordersRecord
+                                                                    .where(
+                                                          'orderid',
+                                                          isEqualTo: _model
+                                                              .textController1
+                                                              .text,
+                                                        ),
+                                                        singleRecord: true,
+                                                      ).then(
+                                                          (s) => s.firstOrNull);
 
-                                                return;
-                                              }
+                                                      await buttonOrdersRecord!
+                                                          .reference
+                                                          .update(
+                                                              createOrdersRecordData(
+                                                        services:
+                                                            '${_model.dropDownValue1}${_model.dropDownValue2}${_model.dropDownValue3}${_model.dropDownValue4}',
+                                                        status: 'Aprobacion',
+                                                        materials: _model
+                                                            .textController6
+                                                            .text,
+                                                        workPrise:
+                                                            valueOrDefault<
+                                                                double>(
+                                                          functions.excelcost(),
+                                                          0.0,
+                                                        ),
+                                                        workHour: _model
+                                                            .countControllerValue
+                                                            ?.toString(),
+                                                      ));
+                                                      FFAppState().prisework =
+                                                          c3PresupuestarOrdersRecord!
+                                                                  .workPrise /
+                                                              2;
+                                                      FFAppState()
+                                                          .update(() {});
+                                                    } else {
+                                                      context.pushNamed(
+                                                          C1InicioTasadorWidget
+                                                              .routeName);
 
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return GestureDetector(
-                                                    onTap: () {
-                                                      FocusScope.of(context)
-                                                          .unfocus();
-                                                      FocusManager
-                                                          .instance.primaryFocus
-                                                          ?.unfocus();
-                                                    },
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          C4PresupuestoExitosoWidget(),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
+                                                      if (_shouldSetState)
+                                                        safeSetState(() {});
+                                                      return;
+                                                    }
 
-                                              context.pushNamed(
-                                                  C2MisPresupuestosWidget
-                                                      .routeName);
-                                            },
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return GestureDetector(
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                C4PresupuestoExitosoWidget(),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+
+                                                    context.pushNamed(
+                                                        C2MisPresupuestosWidget
+                                                            .routeName);
+
+                                                    if (_shouldSetState)
+                                                      safeSetState(() {});
+                                                  },
                                             text: FFLocalizations.of(context)
                                                 .getText(
                                               '7xyt5kdg' /* Crear presupuesto */,
@@ -578,6 +566,9 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                               elevation: 0.0,
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
+                                              disabledColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                             ),
                                           );
                                         },
@@ -839,7 +830,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'CONSTRUCCIÓN Y ARQUITECTURA') {
@@ -852,7 +843,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'ELECTRICISTA') {
@@ -864,7 +855,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'TECNICO DE AIRE') {
@@ -876,7 +867,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'DECORACION') {
@@ -888,7 +879,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'PLOMERO') {
@@ -900,7 +891,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'GASISTA') {
@@ -912,7 +903,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'ALBAÑIL') {
@@ -924,7 +915,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'TECHISTA') {
@@ -936,7 +927,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'JARDINERIA Y PAISAJISMO') {
@@ -948,7 +939,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'CARPINTERO') {
@@ -960,7 +951,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue1 ==
                                                               'PEQUEÑOS ARREGLOS') {
@@ -972,7 +963,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else {
                                                             return columnExcelResponse
                                                                 .jsonBody;
@@ -1395,7 +1386,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'CONSTRUCCIÓN Y ARQUITECTURA') {
@@ -1408,7 +1399,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'ELECTRICISTA') {
@@ -1420,7 +1411,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'TECNICO DE AIRE') {
@@ -1432,7 +1423,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'DECORACION') {
@@ -1444,7 +1435,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'PLOMERO') {
@@ -1456,7 +1447,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'GASISTA') {
@@ -1468,7 +1459,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'ALBAÑIL') {
@@ -1480,7 +1471,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'TECHISTA') {
@@ -1492,7 +1483,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'JARDINERIA Y PAISAJISMO') {
@@ -1504,7 +1495,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'CARPINTERO') {
@@ -1516,7 +1507,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue2 ==
                                                               'PEQUEÑOS ARREGLOS') {
@@ -1528,7 +1519,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else {
                                                             return columnExcelResponse
                                                                 .jsonBody;
@@ -1951,7 +1942,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'CONSTRUCCIÓN Y ARQUITECTURA') {
@@ -1964,7 +1955,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'ELECTRICISTA') {
@@ -1976,7 +1967,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'TECNICO DE AIRE') {
@@ -1988,7 +1979,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'DECORACION') {
@@ -2000,7 +1991,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'PLOMERO') {
@@ -2012,7 +2003,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'GASISTA') {
@@ -2024,7 +2015,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'ALBAÑIL') {
@@ -2036,7 +2027,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'TECHISTA') {
@@ -2048,7 +2039,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'JARDINERIA Y PAISAJISMO') {
@@ -2060,7 +2051,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'CARPINTERO') {
@@ -2072,7 +2063,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else if (_model
                                                                   .dropDownValue3 ==
                                                               'PEQUEÑOS ARREGLOS') {
@@ -2084,7 +2075,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                             ) as List)
                                                                 .map<String>((s) =>
                                                                     s.toString())
-                                                                .toList()!;
+                                                                .toList();
                                                           } else {
                                                             return columnExcelResponse
                                                                 .jsonBody;
@@ -2470,7 +2461,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'CONSTRUCCIÓN Y ARQUITECTURA') {
@@ -2483,7 +2474,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'ELECTRICISTA') {
@@ -2495,7 +2486,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'TECNICO DE AIRE') {
@@ -2507,7 +2498,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'DECORACION') {
@@ -2519,7 +2510,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'PLOMERO') {
@@ -2531,7 +2522,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'GASISTA') {
@@ -2543,7 +2534,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'ALBAÑIL') {
@@ -2555,7 +2546,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'TECHISTA') {
@@ -2567,7 +2558,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'JARDINERIA Y PAISAJISMO') {
@@ -2579,7 +2570,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'CARPINTERO') {
@@ -2591,7 +2582,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else if (_model
                                                                 .dropDownValue4 ==
                                                             'PEQUEÑOS ARREGLOS') {
@@ -2603,7 +2594,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                                           ) as List)
                                                               .map<String>((s) =>
                                                                   s.toString())
-                                                              .toList()!;
+                                                              .toList();
                                                         } else {
                                                           return columnExcelResponse
                                                               .jsonBody;
@@ -3033,7 +3024,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                       stackExcelResponse.jsonBody,
                                     )
                                         ?.contains(_model.dropDownTT1Value)
-                                        ?.toString(),
+                                        .toString(),
                                     '0',
                                   )),
                               style: FlutterFlowTheme.of(context)
@@ -3066,7 +3057,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                       stackExcelResponse.jsonBody,
                                     )
                                         ?.contains(_model.dropDownTT2Value)
-                                        ?.toString(),
+                                        .toString(),
                                     '0',
                                   )),
                               style: FlutterFlowTheme.of(context)
@@ -3099,7 +3090,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                       stackExcelResponse.jsonBody,
                                     )
                                         ?.contains(_model.dropDownTT3Value)
-                                        ?.toString(),
+                                        .toString(),
                                     '0',
                                   )),
                               style: FlutterFlowTheme.of(context)
@@ -3132,7 +3123,7 @@ class _C3PresupuestarWidgetState extends State<C3PresupuestarWidget> {
                                       stackExcelResponse.jsonBody,
                                     )
                                         ?.contains(_model.dropDownTT4Value)
-                                        ?.toString(),
+                                        .toString(),
                                     '0',
                                   )),
                               style: FlutterFlowTheme.of(context)

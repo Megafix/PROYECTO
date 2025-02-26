@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -106,11 +105,6 @@ class OrdersRecord extends FirestoreRecord {
   String get fid => _fid ?? '';
   bool hasFid() => _fid != null;
 
-  // "work_prise" field.
-  String? _workPrise;
-  String get workPrise => _workPrise ?? '';
-  bool hasWorkPrise() => _workPrise != null;
-
   // "work_hour" field.
   String? _workHour;
   String get workHour => _workHour ?? '';
@@ -125,6 +119,11 @@ class OrdersRecord extends FirestoreRecord {
   String? _endDate;
   String get endDate => _endDate ?? '';
   bool hasEndDate() => _endDate != null;
+
+  // "work_prise" field.
+  double? _workPrise;
+  double get workPrise => _workPrise ?? 0.0;
+  bool hasWorkPrise() => _workPrise != null;
 
   void _initializeFields() {
     _createdTime = snapshotData['created_time'] as DateTime?;
@@ -145,10 +144,10 @@ class OrdersRecord extends FirestoreRecord {
     _day = snapshotData['day'] as String?;
     _mounth = snapshotData['mounth'] as String?;
     _fid = snapshotData['fid'] as String?;
-    _workPrise = snapshotData['work_prise'] as String?;
     _workHour = snapshotData['work_hour'] as String?;
     _startDate = snapshotData['start_date'] as String?;
     _endDate = snapshotData['end_date'] as String?;
+    _workPrise = castToType<double>(snapshotData['work_prise']);
   }
 
   static CollectionReference get collection => FirebaseFirestore.instanceFor(
@@ -204,10 +203,10 @@ Map<String, dynamic> createOrdersRecordData({
   String? day,
   String? mounth,
   String? fid,
-  String? workPrise,
   String? workHour,
   String? startDate,
   String? endDate,
+  double? workPrise,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -229,10 +228,10 @@ Map<String, dynamic> createOrdersRecordData({
       'day': day,
       'mounth': mounth,
       'fid': fid,
-      'work_prise': workPrise,
       'work_hour': workHour,
       'start_date': startDate,
       'end_date': endDate,
+      'work_prise': workPrise,
     }.withoutNulls,
   );
 
@@ -262,10 +261,10 @@ class OrdersRecordDocumentEquality implements Equality<OrdersRecord> {
         e1?.day == e2?.day &&
         e1?.mounth == e2?.mounth &&
         e1?.fid == e2?.fid &&
-        e1?.workPrise == e2?.workPrise &&
         e1?.workHour == e2?.workHour &&
         e1?.startDate == e2?.startDate &&
-        e1?.endDate == e2?.endDate;
+        e1?.endDate == e2?.endDate &&
+        e1?.workPrise == e2?.workPrise;
   }
 
   @override
@@ -288,10 +287,10 @@ class OrdersRecordDocumentEquality implements Equality<OrdersRecord> {
         e?.day,
         e?.mounth,
         e?.fid,
-        e?.workPrise,
         e?.workHour,
         e?.startDate,
-        e?.endDate
+        e?.endDate,
+        e?.workPrise
       ]);
 
   @override

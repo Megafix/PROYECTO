@@ -7,14 +7,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:ui';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:provider/provider.dart';
 import 'b10_perfil_f_model.dart';
 export 'b10_perfil_f_model.dart';
 
@@ -486,8 +480,6 @@ class _B10PerfilFWidgetState extends State<B10PerfilFWidget> {
                                                                     valueOrDefault<
                                                                         Color>(
                                                                   _model.userNameTextFieldTextController.text ==
-                                                                              null ||
-                                                                          _model.userNameTextFieldTextController.text ==
                                                                               ''
                                                                       ? FlutterFlowTheme.of(
                                                                               context)
@@ -682,9 +674,6 @@ class _B10PerfilFWidgetState extends State<B10PerfilFWidget> {
                                                                       Color>(
                                                                 _model.emailTextFieldTextController1
                                                                                 .text ==
-                                                                            null ||
-                                                                        _model.emailTextFieldTextController1
-                                                                                .text ==
                                                                             ''
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
@@ -868,9 +857,7 @@ class _B10PerfilFWidgetState extends State<B10PerfilFWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.emailTextFieldTextController2.text ==
-                                                                          null ||
-                                                                      _model.emailTextFieldTextController2
+                                                              _model.emailTextFieldTextController2
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(

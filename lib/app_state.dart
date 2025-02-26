@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/api_requests/api_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
@@ -156,6 +153,12 @@ class FFAppState extends ChangeNotifier {
     date.insert(index, value);
     secureStorage.setStringList('ff_date',
         _date.map((x) => x.millisecondsSinceEpoch.toString()).toList());
+  }
+
+  double _prisework = 8000.0;
+  double get prisework => _prisework;
+  set prisework(double value) {
+    _prisework = value;
   }
 }
 

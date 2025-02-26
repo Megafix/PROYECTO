@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/b1_5_postulacionexitosa/b15_postulacionexitosa_widget.dart';
@@ -9,14 +8,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'b1_postulate_model.dart';
@@ -345,9 +339,7 @@ class _B1PostulateWidgetState extends State<B1PostulateWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.userNameTextFieldTextController.text ==
-                                                                          null ||
-                                                                      _model.userNameTextFieldTextController
+                                                              _model.userNameTextFieldTextController
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -538,9 +530,7 @@ class _B1PostulateWidgetState extends State<B1PostulateWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.emailTextFieldTextController1.text ==
-                                                                          null ||
-                                                                      _model.emailTextFieldTextController1
+                                                              _model.emailTextFieldTextController1
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -738,9 +728,7 @@ class _B1PostulateWidgetState extends State<B1PostulateWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.emailTextFieldTextController2.text ==
-                                                                          null ||
-                                                                      _model.emailTextFieldTextController2
+                                                              _model.emailTextFieldTextController2
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -933,9 +921,7 @@ class _B1PostulateWidgetState extends State<B1PostulateWidget> {
                                                             color:
                                                                 valueOrDefault<
                                                                     Color>(
-                                                              _model.passwordTextFieldTextController.text ==
-                                                                          null ||
-                                                                      _model.passwordTextFieldTextController
+                                                              _model.passwordTextFieldTextController
                                                                               .text ==
                                                                           ''
                                                                   ? FlutterFlowTheme.of(
@@ -1226,27 +1212,15 @@ class _B1PostulateWidgetState extends State<B1PostulateWidget> {
                                       children: [
                                         Expanded(
                                           child: FFButtonWidget(
-                                            onPressed: !((_model
-                                                                .userNameTextFieldTextController.text !=
-                                                            null &&
-                                                        _model.userNameTextFieldTextController.text !=
+                                            onPressed: !((_model.userNameTextFieldTextController.text !=
                                                             '') &&
-                                                    (_model
-                                                                .emailTextFieldTextController1.text !=
-                                                            null &&
-                                                        _model.emailTextFieldTextController1
+                                                    (_model.emailTextFieldTextController1
                                                                 .text !=
                                                             '') &&
-                                                    (_model
-                                                                .emailTextFieldTextController2.text !=
-                                                            null &&
-                                                        _model.emailTextFieldTextController2
+                                                    (_model.emailTextFieldTextController2
                                                                 .text !=
                                                             '') &&
                                                     (_model.passwordTextFieldTextController
-                                                                .text !=
-                                                            null &&
-                                                        _model.passwordTextFieldTextController
                                                                 .text !=
                                                             '') &&
                                                     (_model.dropDownValue !=
@@ -1254,8 +1228,6 @@ class _B1PostulateWidgetState extends State<B1PostulateWidget> {
                                                         _model.dropDownValue !=
                                                             '') &&
                                                     (_model.uploadedFileUrl !=
-                                                            null &&
-                                                        _model.uploadedFileUrl !=
                                                             ''))
                                                 ? null
                                                 : () async {

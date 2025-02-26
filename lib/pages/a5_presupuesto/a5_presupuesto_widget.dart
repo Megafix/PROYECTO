@@ -11,16 +11,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'a5_presupuesto_model.dart';
 export 'a5_presupuesto_model.dart';
@@ -60,6 +55,8 @@ class _A5PresupuestoWidgetState extends State<A5PresupuestoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<OrdersRecord>>(
       stream: queryOrdersRecord(),
       builder: (context, snapshot) {
@@ -1581,7 +1578,7 @@ class _A5PresupuestoWidgetState extends State<A5PresupuestoWidget> {
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 1.0),
                                     child: FutureBuilder<ApiCallResponse>(
-                                      future: MercadopagoCall.call(),
+                                      future: MppaymentsCall.call(),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
                                         if (!snapshot.hasData) {
@@ -1598,7 +1595,7 @@ class _A5PresupuestoWidgetState extends State<A5PresupuestoWidget> {
                                             ),
                                           );
                                         }
-                                        final columnMercadopagoResponse =
+                                        final columnMppaymentsResponse =
                                             snapshot.data!;
 
                                         return Column(
@@ -1771,23 +1768,21 @@ class _A5PresupuestoWidgetState extends State<A5PresupuestoWidget> {
                                                                       : null;
 
                                                               return FFButtonWidget(
-                                                                onPressed: ((_model.dropDownValue == null || _model.dropDownValue == '') &&
+                                                                onPressed: ((_model.dropDownValue == null || _model.dropDownValue == '') ||
                                                                         (_model.textController.text ==
-                                                                                null ||
-                                                                            _model.textController.text ==
-                                                                                '') &&
+                                                                                '') ||
                                                                         (_model.dropDownHsValue ==
                                                                                 null ||
                                                                             _model.dropDownHsValue ==
-                                                                                '') &&
+                                                                                '') ||
                                                                         (_model.dropDownDyValue ==
                                                                                 null ||
                                                                             _model.dropDownDyValue ==
-                                                                                '') &&
+                                                                                '') ||
                                                                         (_model.dropDownMthValue ==
                                                                                 null ||
                                                                             _model.dropDownMthValue ==
-                                                                                '') &&
+                                                                                '') ||
                                                                         (_model.checkboxValue ==
                                                                             null))
                                                                     ? null
@@ -1797,11 +1792,6 @@ class _A5PresupuestoWidgetState extends State<A5PresupuestoWidget> {
                                                                         var _shouldSetState =
                                                                             false;
                                                                         if (currentUserEmailVerified) {
-                                                                          _model.paymentId =
-                                                                              await MercadopagoCall.call();
-
-                                                                          _shouldSetState =
-                                                                              true;
                                                                           _model.ordersCount =
                                                                               await queryOrdersRecordOnce();
                                                                           _shouldSetState =
@@ -1812,7 +1802,6 @@ class _A5PresupuestoWidgetState extends State<A5PresupuestoWidget> {
                                                                               .doc()
                                                                               .set(createOrdersRecordData(
                                                                                 status: 'Presupuestando',
-                                                                                prise: FFAppConstants.preciopresupuesto.toString(),
                                                                                 createdTime: getCurrentTimestamp,
                                                                                 services: _model.dropDownValue,
                                                                                 adress: buttonOrdersRecord?.adress,
@@ -1827,7 +1816,17 @@ class _A5PresupuestoWidgetState extends State<A5PresupuestoWidget> {
                                                                                 hour: _model.dropDownHsValue,
                                                                                 day: _model.dropDownDyValue,
                                                                                 mounth: _model.dropDownMthValue,
+                                                                                workPrise: FFAppState().prisework,
                                                                               ));
+                                                                          _model.paymentpre =
+                                                                              await MppaymentsCall.call();
+
+                                                                          _shouldSetState =
+                                                                              true;
+                                                                          await launchURL(
+                                                                              MppaymentsCall.paymenturl(
+                                                                            columnMppaymentsResponse.jsonBody,
+                                                                          )!);
                                                                         } else {
                                                                           context
                                                                               .pushNamed(A2CreaCuentaWidget.routeName);
