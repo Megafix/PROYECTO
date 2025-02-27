@@ -607,6 +607,10 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                       } else if (FFAppState()
                                                               .userRole ==
                                                           'admin') {
+                                                        context.pushNamedAuth(
+                                                            A4InicioWidget
+                                                                .routeName,
+                                                            context.mounted);
                                                       } else if (FFAppState()
                                                               .userRole ==
                                                           'owner') {
@@ -624,9 +628,21 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                       } else if (FFAppState()
                                                               .userRole ==
                                                           'tasador') {
+                                                        context.pushNamedAuth(
+                                                            C1InicioTasadorWidget
+                                                                .routeName,
+                                                            context.mounted);
                                                       } else {
-                                                        context.safePop();
+                                                        context.pushNamedAuth(
+                                                            A4InicioWidget
+                                                                .routeName,
+                                                            context.mounted);
                                                       }
+
+                                                      context.pushNamedAuth(
+                                                          A4InicioWidget
+                                                              .routeName,
+                                                          context.mounted);
                                                     },
                                               text: FFLocalizations.of(context)
                                                   .getText(

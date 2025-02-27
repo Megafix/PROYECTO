@@ -70,6 +70,11 @@ class PostulacionesRecord extends FirestoreRecord {
   String get cv => _cv ?? '';
   bool hasCv() => _cv != null;
 
+  // "cbu" field.
+  int? _cbu;
+  int get cbu => _cbu ?? 0;
+  bool hasCbu() => _cbu != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _phone = snapshotData['phone'] as String?;
@@ -82,6 +87,7 @@ class PostulacionesRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _uid = snapshotData['uid'] as String?;
     _cv = snapshotData['cv'] as String?;
+    _cbu = castToType<int>(snapshotData['cbu']);
   }
 
   static CollectionReference get collection => FirebaseFirestore.instanceFor(
@@ -131,6 +137,7 @@ Map<String, dynamic> createPostulacionesRecordData({
   String? phoneNumber,
   String? uid,
   String? cv,
+  int? cbu,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -145,6 +152,7 @@ Map<String, dynamic> createPostulacionesRecordData({
       'phone_number': phoneNumber,
       'uid': uid,
       'cv': cv,
+      'cbu': cbu,
     }.withoutNulls,
   );
 
@@ -167,7 +175,8 @@ class PostulacionesRecordDocumentEquality
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.uid == e2?.uid &&
-        e1?.cv == e2?.cv;
+        e1?.cv == e2?.cv &&
+        e1?.cbu == e2?.cbu;
   }
 
   @override
@@ -182,7 +191,8 @@ class PostulacionesRecordDocumentEquality
         e?.createdTime,
         e?.phoneNumber,
         e?.uid,
-        e?.cv
+        e?.cv,
+        e?.cbu
       ]);
 
   @override

@@ -39,6 +39,12 @@ class B1PostulateModel extends FlutterFlowModel<B1PostulateWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
 
+  // State field(s) for EmailTextField widget.
+  FocusNode? emailTextFieldFocusNode3;
+  TextEditingController? emailTextFieldTextController3;
+  String? Function(BuildContext, String?)?
+      emailTextFieldTextController3Validator;
+
   @override
   void initState(BuildContext context) {
     passwordTextFieldVisibility = false;
@@ -57,5 +63,8 @@ class B1PostulateModel extends FlutterFlowModel<B1PostulateWidget> {
 
     passwordTextFieldFocusNode?.dispose();
     passwordTextFieldTextController?.dispose();
+
+    emailTextFieldFocusNode3?.dispose();
+    emailTextFieldTextController3?.dispose();
   }
 }

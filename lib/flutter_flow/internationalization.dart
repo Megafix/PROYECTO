@@ -1504,31 +1504,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // A11_Legal
   {
-    'icfwkxvp': {
-      'es': 'Terms',
-      'en': '',
-    },
-    'd216tz8f': {
+    'b4cg0ciq': {
       'es':
-          'By using this application, you agree to comply with and be bound by the following terms and conditions. Please review them carefully. If you do not agree to these terms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.\n\nTerms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.',
-      'en': '',
-    },
-    'mf4seg4j': {
-      'es': 'Changes to the Service and/or Terms:',
-      'en': '',
-    },
-    '4aolvysc': {
-      'es':
-          'This application is provided to you \"as is,\" and we make no express or implied warranties whatsoever with respect to its functionality, operability, or use, including, without limitation.\n\nAny implied warranties of merchantability, fitness for a particular purpose, or infringement. We expressly disclaim any liability whatsoever for any direct, indirect, consequential, incidental or special damages, including, without limitation, lost revenues, lost profits, losses resulting from business interruption or loss of \n\ndata, regardless of the form of action or legal theory under which the liability may be asserted, even if advised of the possibility or likelihood of such damages.\n\n\nBy using this application, you agree to comply with and be bound by the following terms and conditions. Please review them carefully. If you do not agree to these terms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.',
-      'en': '',
-    },
-    'x014ew2n': {
-      'es': 'Terms',
-      'en': '',
-    },
-    'o3qpa1ln': {
-      'es':
-          'By using this application, you agree to comply with and be bound by the following terms and conditions. Please review them carefully. If you do not agree to these terms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.\n\nTerms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.',
+          '**TÉRMINOS Y CONDICIONES PARA CLIENTES**\n\n**1. Introducción**  \nBienvenido a RH+, una plataforma que conecta clientes con profesionales independientes para la realización de tareas del hogar. Al utilizar nuestra plataforma, usted acepta estos Términos y Condiciones.\n\n**2. Uso de la Plataforma**  \n- RH+ permite la contratación de servicios a través de la app, web y WhatsApp.\n- Los pagos deben realizarse en su totalidad mediante tarjeta o transferencia.\n- El cliente es responsable de proporcionar acceso al domicilio y cualquier información relevante para la prestación del servicio.\n\n**3. Garantía de Servicio**  \n- RH+ ofrece garantía sobre los servicios realizados, asegurando la calidad del trabajo.\n- En caso de inconvenientes, los clientes pueden reportar el servicio para su revisión.\n\n**4. Calificaciones y Comentarios**  \n- Los clientes pueden calificar y dejar comentarios sobre los trabajadores.\n- RH+ se reserva el derecho de moderar y eliminar comentarios que incumplan con normas de respeto.\n\n**5. Reclamaciones y Reportes**  \n- Si un cliente tiene problemas con un servicio, puede reportarlo a RH+ para su evaluación.\n- RH+ actuará como intermediario, pero no garantiza reembolsos debido a la falta de política de cancelaciones.\n\n**6. Modificaciones de los Términos**  \nRH+ puede modificar estos términos en cualquier momento. El uso continuado de la plataforma implica la aceptación de los cambios.\n\n---\n\n**TÉRMINOS Y CONDICIONES PARA TRABAJADORES**\n\n**1. Introducción**  \nAl registrarse en RH+, los trabajadores independientes aceptan estos Términos y Condiciones, regulando su uso de la plataforma.\n\n**2. Requisitos para Trabajadores**  \nPara unirse a RH+, los trabajadores deben cumplir con:\n- Ser mayores de edad.\n- Contar con experiencia en su rubro.\n- Tener herramientas necesarias para su trabajo.\n- Aceptar y cumplir el código de conducta.\n\n**3. Independencia Laboral**  \n- Los trabajadores son independientes y no empleados de RH+.\n- Son responsables de la calidad y cumplimiento de sus servicios.\n- Se les pagará por obra finalizada, mediante transferencia o tarjeta.\n\n**4. Código de Conducta**  \nLos trabajadores deben:\n- Brindar un servicio profesional y responsable.\n- Respetar los tiempos y condiciones acordadas con el cliente.\n- Mantener una comunicación clara y respetuosa.\n\n**5. Sanciones y Expulsiones**  \nRH+ podrá aplicar sanciones, suspensiones o expulsiones en caso de:\n- Incumplimiento de los acuerdos con clientes.\n- Recibir reiteradas malas calificaciones.\n- Reportes graves de clientes sobre conducta o servicio.\n\n**6. Modificaciones de los Términos**  \nRH+ se reserva el derecho de modificar estos términos en cualquier momento. El uso continuo de la plataforma implica su aceptación.\n\n**Contacto**  \nPara consultas, contáctenos a través de nuestros canales oficiales.\n\n',
       'en': '',
     },
     'xf9gx60w': {
@@ -1695,6 +1673,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'x6g6t3lg': {
       'es': 'Subir el archivo',
+      'en': '',
+    },
+    'exyuoq5k': {
+      'es': 'CBU',
+      'en': '',
+    },
+    '6xjot2lm': {
+      'es': 'Ingrese su cbu',
       'en': '',
     },
     'lgppvz1h': {
@@ -2207,31 +2193,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // B8_LegalF
   {
-    '7ybb8mmp': {
-      'es': 'Terms',
-      'en': '',
-    },
-    'cuvuscxf': {
+    'b3ihanr5': {
       'es':
-          'By using this application, you agree to comply with and be bound by the following terms and conditions. Please review them carefully. If you do not agree to these terms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.\n\nTerms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.',
-      'en': '',
-    },
-    'x53chauj': {
-      'es': 'Changes to the Service and/or Terms:',
-      'en': '',
-    },
-    'hwsc74zd': {
-      'es':
-          'This application is provided to you \"as is,\" and we make no express or implied warranties whatsoever with respect to its functionality, operability, or use, including, without limitation.\n\nAny implied warranties of merchantability, fitness for a particular purpose, or infringement. We expressly disclaim any liability whatsoever for any direct, indirect, consequential, incidental or special damages, including, without limitation, lost revenues, lost profits, losses resulting from business interruption or loss of \n\ndata, regardless of the form of action or legal theory under which the liability may be asserted, even if advised of the possibility or likelihood of such damages.\n\n\nBy using this application, you agree to comply with and be bound by the following terms and conditions. Please review them carefully. If you do not agree to these terms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.',
-      'en': '',
-    },
-    '07ruin5g': {
-      'es': 'Terms',
-      'en': '',
-    },
-    'm1ttej8b': {
-      'es':
-          'By using this application, you agree to comply with and be bound by the following terms and conditions. Please review them carefully. If you do not agree to these terms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.\n\nTerms, you should not use this application. The term \"us\" or \"we\" refers to [Your Company Name], the owner of this application. The term \"you\" refers to the user or viewer of our application.',
+          '**TÉRMINOS Y CONDICIONES PARA CLIENTES**\n\n**1. Introducción**  \nBienvenido a RH+, una plataforma que conecta clientes con profesionales independientes para la realización de tareas del hogar. Al utilizar nuestra plataforma, usted acepta estos Términos y Condiciones.\n\n**2. Uso de la Plataforma**  \n- RH+ permite la contratación de servicios a través de la app, web y WhatsApp.\n- Los pagos deben realizarse en su totalidad mediante tarjeta o transferencia.\n- El cliente es responsable de proporcionar acceso al domicilio y cualquier información relevante para la prestación del servicio.\n\n**3. Garantía de Servicio**  \n- RH+ ofrece garantía sobre los servicios realizados, asegurando la calidad del trabajo.\n- En caso de inconvenientes, los clientes pueden reportar el servicio para su revisión.\n\n**4. Calificaciones y Comentarios**  \n- Los clientes pueden calificar y dejar comentarios sobre los trabajadores.\n- RH+ se reserva el derecho de moderar y eliminar comentarios que incumplan con normas de respeto.\n\n**5. Reclamaciones y Reportes**  \n- Si un cliente tiene problemas con un servicio, puede reportarlo a RH+ para su evaluación.\n- RH+ actuará como intermediario, pero no garantiza reembolsos debido a la falta de política de cancelaciones.\n\n**6. Modificaciones de los Términos**  \nRH+ puede modificar estos términos en cualquier momento. El uso continuado de la plataforma implica la aceptación de los cambios.\n\n---\n\n**TÉRMINOS Y CONDICIONES PARA TRABAJADORES**\n\n**1. Introducción**  \nAl registrarse en RH+, los trabajadores independientes aceptan estos Términos y Condiciones, regulando su uso de la plataforma.\n\n**2. Requisitos para Trabajadores**  \nPara unirse a RH+, los trabajadores deben cumplir con:\n- Ser mayores de edad.\n- Contar con experiencia en su rubro.\n- Tener herramientas necesarias para su trabajo.\n- Aceptar y cumplir el código de conducta.\n\n**3. Independencia Laboral**  \n- Los trabajadores son independientes y no empleados de RH+.\n- Son responsables de la calidad y cumplimiento de sus servicios.\n- Se les pagará por obra finalizada, mediante transferencia o tarjeta.\n\n**4. Código de Conducta**  \nLos trabajadores deben:\n- Brindar un servicio profesional y responsable.\n- Respetar los tiempos y condiciones acordadas con el cliente.\n- Mantener una comunicación clara y respetuosa.\n\n**5. Sanciones y Expulsiones**  \nRH+ podrá aplicar sanciones, suspensiones o expulsiones en caso de:\n- Incumplimiento de los acuerdos con clientes.\n- Recibir reiteradas malas calificaciones.\n- Reportes graves de clientes sobre conducta o servicio.\n\n**6. Modificaciones de los Términos**  \nRH+ se reserva el derecho de modificar estos términos en cualquier momento. El uso continuo de la plataforma implica su aceptación.\n\n**Contacto**  \nPara consultas, contáctenos a través de nuestros canales oficiales.\n\n',
       'en': '',
     },
     '0dentyp7': {

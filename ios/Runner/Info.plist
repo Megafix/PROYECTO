@@ -42,7 +42,7 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>fooddeliveryprototypeappuikit.com</string>
+        <string>rhpositivo.com.ar</string>
         <key>CFBundleURLSchemes</key>
         <array>
         <string>RHpositivo</string>
