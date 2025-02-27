@@ -6,6 +6,9 @@
  *
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
+console.log("Iniciando servidor...");
+console.log(`Puerto: ${port}`);
+
 const express = require('express');
 const app = express();
 
