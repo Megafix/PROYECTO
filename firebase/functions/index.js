@@ -1,3 +1,8 @@
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
+
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
