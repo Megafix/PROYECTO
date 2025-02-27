@@ -6,6 +6,17 @@
  *
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
+const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 8080;
+
+// Define tus rutas y middleware aquí
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
