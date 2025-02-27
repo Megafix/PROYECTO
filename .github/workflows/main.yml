@@ -39,5 +39,5 @@ jobs:
 
       - name: Cleanup
         run: |
-          git config --global --unset-all safe.directory /home/runner/work/PROYECTO/PROYECTO
-          git config --local --unset-all http.https://github.com/.extraheader
+         git config --global --unset-all safe.directory /home/runner/work/PROYECTO/PROYECTO || true
+         git config --local --unset-all http.https://github.com/.extraheader || true
