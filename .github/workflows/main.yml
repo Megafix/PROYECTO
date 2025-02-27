@@ -36,3 +36,8 @@ jobs:
         run: firebase deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
+
+      - name: Cleanup
+        run: |
+          git config --global --unset-all safe.directory /home/runner/work/PROYECTO/PROYECTO
+          git config --local --unset-all http.https://github.com/.extraheader
