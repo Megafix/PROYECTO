@@ -1,45 +1,17 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-console.log("Iniciando servidor...");
-console.log(`Puerto: ${port}`);
-
-const PORT = process.env.PORT || 8080;
-
-// Define tus rutas y middleware aquí
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
-
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
-
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
 const functions = require("firebase-functions");
-const mercadopago = require("mercadopago");
-const cors = require("cors");
 const express = require("express");
-
-const app = express();
-app.use(cors({ origin: true }));
+const cors = require("cors");
+const mercadopago = require("mercadopago");
 
 // Configurar Mercado Pago con tu Access Token
 mercadopago.configure({
   access_token: "TU_ACCESS_TOKEN",
 });
+
+// Inicializar Express
+const app = express();
+app.use(cors({ origin: true }));
+app.use(express.json()); // Para manejar JSON en las solicitudes
 
 // Crear un pago
 app.post("/create-preference", async (req, res) => {
@@ -74,5 +46,5 @@ app.post("/create-preference", async (req, res) => {
   }
 });
 
-// Exportar la API de pagos
+// Exportar la API como una Cloud Function
 exports.api = functions.https.onRequest(app);
