@@ -1,4 +1,4 @@
-// Importa las dependencias necesarias
+// Importa las dependencias necesaria
 const express = require("express");
 const cors = require("cors");
 const functions = require("firebase-functions");
