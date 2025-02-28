@@ -1,49 +1,25 @@
 // Importa las dependencias necesarias
 const express = require("express");
 const cors = require("cors");
-
-// Inicializa la aplicación Express
-const app = express();
-app.use(cors({ origin: true }));  // Permite solicitudes CORS
-app.use(express.json());  // Para manejar solicitudes JSON
-
-// Configura el puerto para que se escuche en el 8080 (o el puerto proporcionado por Cloud Run)
-const PORT = process.env.PORT || 8080;  // Usa el puerto de Cloud Run o 8080 como fallback
-
-// Define una ruta para asegurarse de que el servidor está funcionando
-app.get("/", (req, res) => {
-  res.send("Servidor funcionando correctamente en el puerto " + PORT);
-});
-
-// Define tus rutas adicionales aquí
-// Ejemplo de ruta de pago
-app.post("/create-preference", async (req, res) => {
-  // Tu lógica aquí...
-  res.send("Lógica de pago");
-});
-
-// Inicia el servidor y escucha en el puerto correcto
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-
-// Importa las dependencias necesaria
 const functions = require("firebase-functions");
-const express = require("express");
-const cors = require("cors");
 const mercadopago = require("mercadopago");
 
 // Inicializa la aplicación Express
 const app = express();
-
-// Permite solicitudes CORS de cualquier origen (ajusta esto si tienes requisitos más específicos)
-app.use(cors({ origin: true }));  // Permite solicitudes CORS
+app.use(cors({ origin: true }));  // Permite solicitudes CORS para cualquier origen
 app.use(express.json());  // Para manejar solicitudes JSON
 
-// Configura Mercado Pago con tu Access Token (reemplaza "TU_ACCESS_TOKEN" con tu token real)
+// Configura el puerto para que se escuche en el puerto 8080 (o el puerto proporcionado por Cloud Run)
+const PORT = process.env.PORT || 8080;  // Usa el puerto de Cloud Run o 8080 como fallback
+
+// Configura Mercado Pago con tu Access Token
 mercadopago.configure({
   access_token: "APP_USR-320738281269718-022117-d25aa3eec6a3f53a0a7b9965a35d149b-2280283251",  // Reemplaza con tu token de acceso de Mercado Pago
+});
+
+// Define una ruta para asegurarse de que el servidor está funcionando
+app.get("/", (req, res) => {
+  res.send("Servidor funcionando correctamente en el puerto " + PORT);
 });
 
 // Define la ruta para crear la preferencia de pago
@@ -65,6 +41,11 @@ app.post("/create-preference", async (req, res) => {
       payer: {
         email: email,  // Email del usuario que realiza el pago
       },
+      back_urls: {
+        success: "https://tu-dominio.com/success",  // Reemplaza con tu URL de éxito
+        failure: "https://tu-dominio.com/failure",  // Reemplaza con tu URL de fallo
+        pending: "https://tu-dominio.com/pending",  // Reemplaza con tu URL de pendiente
+      },
       auto_return: "approved",  // Regresa automáticamente a la URL de éxito si el pago es aprobado
     };
 
@@ -79,6 +60,6 @@ app.post("/create-preference", async (req, res) => {
     res.status(500).send("Error al procesar el pago");
   }
 });
-app.use(cors({ origin: 'https://tu-dominio.com' }));
+
 // Exporta la API Express como una función de Firebase
 exports.api = functions.https.onRequest(app);
