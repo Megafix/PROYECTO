@@ -10,7 +10,10 @@ app.use(cors({ origin: true }));  // Permite solicitudes CORS para cualquier ori
 app.use(express.json());  // Para manejar solicitudes JSON
 
 // Configura el puerto para que se escuche en el puerto 8080 (o el puerto proporcionado por Cloud Run)
-const PORT = process.env.PORT || 8080;  // Usa el puerto de Cloud Run o 8080 como fallback
+const port = process.env.PORT || 8080;
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Servidor en puerto ${port}`);
+});  // Usa el puerto de Cloud Run o 8080 como fallback
 
 // Configura Mercado Pago con tu Access Token
 mercadopago.configure({
