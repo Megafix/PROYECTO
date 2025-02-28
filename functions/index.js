@@ -1,3 +1,33 @@
+// Importa las dependencias necesarias
+const express = require("express");
+const cors = require("cors");
+
+// Inicializa la aplicación Express
+const app = express();
+app.use(cors({ origin: true }));  // Permite solicitudes CORS
+app.use(express.json());  // Para manejar solicitudes JSON
+
+// Configura el puerto para que se escuche en el 8080 (o el puerto proporcionado por Cloud Run)
+const PORT = process.env.PORT || 8080;  // Usa el puerto de Cloud Run o 8080 como fallback
+
+// Define una ruta para asegurarse de que el servidor está funcionando
+app.get("/", (req, res) => {
+  res.send("Servidor funcionando correctamente en el puerto " + PORT);
+});
+
+// Define tus rutas adicionales aquí
+// Ejemplo de ruta de pago
+app.post("/create-preference", async (req, res) => {
+  // Tu lógica aquí...
+  res.send("Lógica de pago");
+});
+
+// Inicia el servidor y escucha en el puerto correcto
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+
 // Importa las dependencias necesaria
 const functions = require("firebase-functions");
 const express = require("express");
