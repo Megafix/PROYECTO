@@ -13,7 +13,7 @@ app.use(express.json());  // Para manejar solicitudes JSON
 
 // Configura Mercado Pago con tu Access Token (reemplaza "TU_ACCESS_TOKEN" con tu token real)
 mercadopago.configure({
-  access_token: "TU_ACCESS_TOKEN",  // Reemplaza con tu token de acceso de Mercado Pago
+  access_token: "APP_USR-320738281269718-022117-d25aa3eec6a3f53a0a7b9965a35d149b-2280283251",  // Reemplaza con tu token de acceso de Mercado Pago
 });
 
 // Define la ruta para crear la preferencia de pago
@@ -35,11 +35,6 @@ app.post("/create-preference", async (req, res) => {
       payer: {
         email: email,  // Email del usuario que realiza el pago
       },
-      back_urls: {
-        success: "https://TU_APP/success",  // URL de éxito
-        failure: "https://TU_APP/failure",  // URL de error
-        pending: "https://TU_APP/pending",  // URL de pago pendiente
-      },
       auto_return: "approved",  // Regresa automáticamente a la URL de éxito si el pago es aprobado
     };
 
@@ -54,6 +49,6 @@ app.post("/create-preference", async (req, res) => {
     res.status(500).send("Error al procesar el pago");
   }
 });
-
+app.use(cors({ origin: 'https://tu-dominio.com' }));
 // Exporta la API Express como una función de Firebase
 exports.api = functions.https.onRequest(app);
