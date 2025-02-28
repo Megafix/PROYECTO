@@ -9,9 +9,6 @@
 console.log("Iniciando servidor...");
 console.log(`Puerto: ${port}`);
 
-const express = require('express');
-const app = express();
-
 const PORT = process.env.PORT || 8080;
 
 // Define tus rutas y middleware aquí
