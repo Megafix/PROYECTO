@@ -190,7 +190,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Phone number',
     },
     '0rdomdr9': {
-      'es': 'Ingressa tu mail o numero',
+      'es': 'Ingresa tu numero',
       'en': 'Enter your email or number',
     },
     '8hrnyurr': {

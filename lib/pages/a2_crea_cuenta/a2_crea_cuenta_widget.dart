@@ -8,7 +8,6 @@ import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'a2_crea_cuenta_model.dart';
 export 'a2_crea_cuenta_model.dart';
 
@@ -37,18 +36,10 @@ class _A2CreaCuentaWidgetState extends State<A2CreaCuentaWidget> {
     _model.userNameTextFieldTextController ??= TextEditingController();
     _model.userNameTextFieldFocusNode ??= FocusNode();
 
-    _model.emailTextFieldTextController ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().email,
-      'Ingrese  su email',
-    ));
+    _model.emailTextFieldTextController ??= TextEditingController();
     _model.emailTextFieldFocusNode ??= FocusNode();
 
-    _model.numberTextFieldTextController ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().number.toString(),
-      'Ingrese su numero',
-    ));
+    _model.numberTextFieldTextController ??= TextEditingController();
     _model.numberTextFieldFocusNode ??= FocusNode();
 
     _model.passwordTextFieldTextController ??= TextEditingController();
@@ -66,8 +57,6 @@ class _A2CreaCuentaWidgetState extends State<A2CreaCuentaWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -645,7 +634,7 @@ class _A2CreaCuentaWidgetState extends State<A2CreaCuentaWidget> {
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            '0rdomdr9' /* Ingressa tu mail o numero */,
+                                                            '0rdomdr9' /* Ingresa tu numero */,
                                                           ),
                                                           hintStyle:
                                                               FlutterFlowTheme.of(

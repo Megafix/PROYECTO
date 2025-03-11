@@ -22,8 +22,7 @@ class A2CreaCuentaModel extends FlutterFlowModel<A2CreaCuentaWidget> {
   // State field(s) for NumberTextField widget.
   FocusNode? numberTextFieldFocusNode;
   TextEditingController? numberTextFieldTextController;
-  final numberTextFieldMask =
-      MaskTextInputFormatter(mask: '+# (###) ###-##-##');
+  final numberTextFieldMask = MaskTextInputFormatter(mask: '+## ### ###-####');
   String? Function(BuildContext, String?)?
       numberTextFieldTextControllerValidator;
   // State field(s) for PasswordTextField widget.
