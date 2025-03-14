@@ -138,6 +138,16 @@ exports.onUserDeleted = functions
       });
     await firestore.collection("users").doc(user.uid).delete();
     await firestore
+      .collection("orders")
+      .where("uid", "==", user.uid)
+      .get()
+      .then(async (querySnapshot) => {
+        for (var doc of querySnapshot.docs) {
+          console.log(`Deleting document ${doc.id} from collection orders`);
+          await doc.ref.delete();
+        }
+      });
+    await firestore
       .collection("freelancers")
       .where("uid", "==", user.uid)
       .get()

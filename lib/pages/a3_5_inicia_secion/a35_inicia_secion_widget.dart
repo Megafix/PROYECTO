@@ -638,11 +638,6 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                                 .routeName,
                                                             context.mounted);
                                                       }
-
-                                                      context.pushNamedAuth(
-                                                          A4InicioWidget
-                                                              .routeName,
-                                                          context.mounted);
                                                     },
                                               text: FFLocalizations.of(context)
                                                   .getText(
