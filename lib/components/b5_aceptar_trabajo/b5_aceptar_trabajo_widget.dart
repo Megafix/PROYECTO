@@ -231,86 +231,81 @@ class _B5AceptarTrabajoWidgetState extends State<B5AceptarTrabajoWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Expanded(
-                              child: AuthUserStreamWidget(
-                                builder: (context) =>
-                                    StreamBuilder<List<FreelancersRecord>>(
-                                  stream: queryFreelancersRecord(
-                                    queryBuilder: (freelancersRecord) =>
-                                        freelancersRecord.where(
-                                      'uid',
-                                      isEqualTo: valueOrDefault(
-                                          currentUserDocument?.userid, ''),
-                                    ),
-                                    singleRecord: true,
+                              child: StreamBuilder<List<FreelancersRecord>>(
+                                stream: queryFreelancersRecord(
+                                  queryBuilder: (freelancersRecord) =>
+                                      freelancersRecord.where(
+                                    'uid',
+                                    isEqualTo: currentUserUid,
                                   ),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 40.0,
-                                          height: 40.0,
-                                          child: SpinKitDualRing(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            size: 40.0,
-                                          ),
+                                  singleRecord: true,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 40.0,
+                                        height: 40.0,
+                                        child: SpinKitDualRing(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 40.0,
                                         ),
-                                      );
-                                    }
-                                    List<FreelancersRecord>
-                                        buttonFreelancersRecordList =
-                                        snapshot.data!;
-                                    // Return an empty Container when the item does not exist.
-                                    if (snapshot.data!.isEmpty) {
-                                      return Container();
-                                    }
-                                    final buttonFreelancersRecord =
-                                        buttonFreelancersRecordList.isNotEmpty
-                                            ? buttonFreelancersRecordList.first
-                                            : null;
-
-                                    return FFButtonWidget(
-                                      onPressed: () async {
-                                        await containerOrdersRecord!.reference
-                                            .update(createOrdersRecordData(
-                                          status: 'En proceso',
-                                          displayName: currentUserDisplayName,
-                                          fid: buttonFreelancersRecord?.fid,
-                                        ));
-                                        Navigator.pop(context);
-
-                                        context.pushNamed(
-                                            B6DetallesdelServicioWidget
-                                                .routeName);
-                                      },
-                                      text: FFLocalizations.of(context).getText(
-                                        'hpyvwm5w' /* Aceptar servicio */,
-                                      ),
-                                      options: FFButtonOptions(
-                                        height: 56.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 16.0, 24.0, 16.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Baloo 2',
-                                              color: Colors.white,
-                                              fontSize: 25.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 0.0,
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
                                       ),
                                     );
-                                  },
-                                ),
+                                  }
+                                  List<FreelancersRecord>
+                                      buttonFreelancersRecordList =
+                                      snapshot.data!;
+                                  // Return an empty Container when the item does not exist.
+                                  if (snapshot.data!.isEmpty) {
+                                    return Container();
+                                  }
+                                  final buttonFreelancersRecord =
+                                      buttonFreelancersRecordList.isNotEmpty
+                                          ? buttonFreelancersRecordList.first
+                                          : null;
+
+                                  return FFButtonWidget(
+                                    onPressed: () async {
+                                      await containerOrdersRecord!.reference
+                                          .update(createOrdersRecordData(
+                                        status: 'En proceso',
+                                        displayName: currentUserDisplayName,
+                                        fid: buttonFreelancersRecord?.fid,
+                                      ));
+                                      Navigator.pop(context);
+
+                                      context.pushNamed(
+                                          B6DetallesdelServicioWidget
+                                              .routeName);
+                                    },
+                                    text: FFLocalizations.of(context).getText(
+                                      'hpyvwm5w' /* Aceptar servicio */,
+                                    ),
+                                    options: FFButtonOptions(
+                                      height: 56.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 16.0, 24.0, 16.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Baloo 2',
+                                            color: Colors.white,
+                                            fontSize: 25.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      elevation: 0.0,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                           ],

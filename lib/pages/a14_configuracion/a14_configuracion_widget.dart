@@ -105,23 +105,6 @@ class _A14ConfiguracionWidgetState extends State<A14ConfiguracionWidget> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          'd8mrw4v1' /* Page Title */,
-                        ),
-                        style: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .override(
-                              fontFamily: 'Baloo 2',
-                              color: Colors.white,
-                              fontSize: 22.0,
-                              letterSpacing: 0.0,
-                            ),
-                      ),
-                    ),
                   ],
                 ),
               ),

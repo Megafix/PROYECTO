@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -604,6 +605,10 @@ class _A3VerificacionWidgetState extends State<A3VerificacionWidget> {
                                                   ).then((value) =>
                                                       safeSetState(() {}));
 
+                                                  context.pushNamedAuth(
+                                                      A4InicioWidget.routeName,
+                                                      context.mounted);
+
                                                   return;
                                                 } else {
                                                   context.safePop();
@@ -707,26 +712,6 @@ class _A3VerificacionWidgetState extends State<A3VerificacionWidget> {
                                                                 'Baloo 2',
                                                             letterSpacing: 0.0,
                                                           ),
-                                                    ),
-                                                    TextSpan(
-                                                      text: FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '7axmi8vz' /* Reenviar */,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Baloo 2',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
                                                     )
                                                   ],
                                                   style: FlutterFlowTheme.of(
@@ -737,6 +722,69 @@ class _A3VerificacionWidgetState extends State<A3VerificacionWidget> {
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
+                                              ),
+                                            ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await Future.wait([
+                                                  Future(() async {
+                                                    GoRouter.of(context)
+                                                        .prepareAuthEvent();
+                                                    final smsCodeVal = _model
+                                                        .pinCodeController1!
+                                                        .text;
+                                                    if (smsCodeVal.isEmpty) {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                              'Enter SMS verification code.'),
+                                                        ),
+                                                      );
+                                                      return;
+                                                    }
+                                                    final phoneVerifiedUser =
+                                                        await authManager
+                                                            .verifySmsCode(
+                                                      context: context,
+                                                      smsCode: smsCodeVal,
+                                                    );
+                                                    if (phoneVerifiedUser ==
+                                                        null) {
+                                                      return;
+                                                    }
+                                                  }),
+                                                  Future(() async {
+                                                    await authManager
+                                                        .sendEmailVerification();
+                                                  }),
+                                                ]);
+
+                                                context.goNamedAuth(
+                                                    A4InicioWidget.routeName,
+                                                    context.mounted);
+                                              },
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '3brb6n9f' /* Reenviar */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Baloo 2',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                           ],

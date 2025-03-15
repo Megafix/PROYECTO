@@ -42,8 +42,8 @@ class _A9DetallesWidgetState extends State<A9DetallesWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await queryOrdersRecordOnce(
         queryBuilder: (ordersRecord) => ordersRecord.where(
-          'orderid',
-          isEqualTo: currentUserReference?.id,
+          'userid',
+          isEqualTo: currentUserUid,
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);

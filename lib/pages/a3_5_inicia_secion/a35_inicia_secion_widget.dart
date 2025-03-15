@@ -590,13 +590,6 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                       if (user == null) {
                                                         return;
                                                       }
-                                                      FFAppState().userRole =
-                                                          FFAppState().userRole;
-                                                      FFAppState().email = _model
-                                                          .emailTextFieldTextController
-                                                          .text;
-                                                      FFAppState()
-                                                          .update(() {});
                                                       if (FFAppState()
                                                               .userRole ==
                                                           'freelancer') {
@@ -604,6 +597,8 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                             B2InicioFreelancerWidget
                                                                 .routeName,
                                                             context.mounted);
+
+                                                        return;
                                                       } else if (FFAppState()
                                                               .userRole ==
                                                           'admin') {
@@ -611,6 +606,8 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                             A4InicioWidget
                                                                 .routeName,
                                                             context.mounted);
+
+                                                        return;
                                                       } else if (FFAppState()
                                                               .userRole ==
                                                           'owner') {
@@ -618,6 +615,8 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                             A4InicioWidget
                                                                 .routeName,
                                                             context.mounted);
+
+                                                        return;
                                                       } else if (FFAppState()
                                                               .userRole ==
                                                           'client') {
@@ -625,6 +624,8 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                             A4InicioWidget
                                                                 .routeName,
                                                             context.mounted);
+
+                                                        return;
                                                       } else if (FFAppState()
                                                               .userRole ==
                                                           'tasador') {
@@ -632,11 +633,11 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                             C1InicioTasadorWidget
                                                                 .routeName,
                                                             context.mounted);
+
+                                                        return;
                                                       } else {
-                                                        context.pushNamedAuth(
-                                                            A4InicioWidget
-                                                                .routeName,
-                                                            context.mounted);
+                                                        context.safePop();
+                                                        return;
                                                       }
                                                     },
                                               text: FFLocalizations.of(context)
@@ -733,9 +734,17 @@ class _A35IniciaSecionWidgetState extends State<A35IniciaSecionWidget> {
                                                     } else if (FFAppState()
                                                             .userRole ==
                                                         'admin') {
+                                                      context.pushNamedAuth(
+                                                          A4InicioWidget
+                                                              .routeName,
+                                                          context.mounted);
                                                     } else if (FFAppState()
                                                             .userRole ==
                                                         'owner') {
+                                                      context.pushNamedAuth(
+                                                          A4InicioWidget
+                                                              .routeName,
+                                                          context.mounted);
                                                     } else if (FFAppState()
                                                             .userRole ==
                                                         'client') {

@@ -41,8 +41,8 @@ class _B6DetallesdelServicioWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await queryOrdersRecordOnce(
         queryBuilder: (ordersRecord) => ordersRecord.where(
-          'orderid',
-          isEqualTo: currentUserReference?.id,
+          'fid',
+          isEqualTo: valueOrDefault(currentUserDocument?.fid, ''),
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -332,102 +332,179 @@ class _B6DetallesdelServicioWidgetState
                                   ),
                                 ),
                                 Expanded(
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, -1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, -1.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, -1.0),
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            b6DetallesdelServicioOrdersRecord
-                                                                ?.services,
-                                                            'Servicios',
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Baloo 2',
-                                                                fontSize: 25.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(width: 16.0)),
-                                                  ),
-                                                ),
-                                                Row(
+                                  child: StreamBuilder<List<FreelancersRecord>>(
+                                    stream: queryFreelancersRecord(
+                                      queryBuilder: (freelancersRecord) =>
+                                          freelancersRecord.where(
+                                        'uid',
+                                        isEqualTo: currentUserUid,
+                                      ),
+                                      singleRecord: true,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 40.0,
+                                            height: 40.0,
+                                            child: SpinKitDualRing(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 40.0,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<FreelancersRecord>
+                                          columnFreelancersRecordList =
+                                          snapshot.data!;
+                                      // Return an empty Container when the item does not exist.
+                                      if (snapshot.data!.isEmpty) {
+                                        return Container();
+                                      }
+                                      final columnFreelancersRecord =
+                                          columnFreelancersRecordList.isNotEmpty
+                                              ? columnFreelancersRecordList
+                                                  .first
+                                              : null;
+
+                                      return SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
                                                   children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, -1.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, -1.0),
+                                                            child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                b6DetallesdelServicioOrdersRecord
+                                                                    ?.services,
+                                                                'Servicios',
+                                                              ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Baloo 2',
+                                                                    fontSize:
+                                                                        25.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 16.0)),
+                                                      ),
+                                                    ),
                                                     Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
                                                       children: [
-                                                        Icon(
-                                                          FFIcons.kclock,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 20.0,
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              FFIcons.kclock,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 20.0,
+                                                            ),
+                                                            Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                () {
+                                                                  if (b6DetallesdelServicioOrdersRecord
+                                                                          ?.status ==
+                                                                      'Presupuestando') {
+                                                                    return '15 min/1h';
+                                                                  } else if (b6DetallesdelServicioOrdersRecord
+                                                                          ?.status ==
+                                                                      'Aprobacion') {
+                                                                    return b6DetallesdelServicioOrdersRecord
+                                                                        ?.workHour;
+                                                                  } else {
+                                                                    return 'En proceso';
+                                                                  }
+                                                                }(),
+                                                                'Se esta determinando',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Baloo 2',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ].divide(SizedBox(
+                                                              width: 8.0)),
                                                         ),
-                                                        Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            () {
-                                                              if (b6DetallesdelServicioOrdersRecord
-                                                                      ?.status ==
-                                                                  'Presupuestando') {
-                                                                return '15 min/1h';
-                                                              } else if (b6DetallesdelServicioOrdersRecord
-                                                                      ?.status ==
-                                                                  'Aprobacion') {
-                                                                return b6DetallesdelServicioOrdersRecord
-                                                                    ?.workHour;
-                                                              } else {
-                                                                return 'En proceso';
-                                                              }
-                                                            }(),
-                                                            'Se esta determinando',
-                                                          ),
+                                                      ],
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(height: 1.0)),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.stretch,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Flexible(
+                                                        child: Text(
+                                                          'Detalles:${b6DetallesdelServicioOrdersRecord?.details}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelLarge
@@ -438,33 +515,244 @@ class _B6DetallesdelServicioWidgetState
                                                                     0.0,
                                                               ),
                                                         ),
-                                                      ].divide(
-                                                          SizedBox(width: 8.0)),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ].divide(SizedBox(height: 1.0)),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 12.0)),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.stretch,
-                                            children: [
-                                              Row(
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment
+                                                          .stretch,
+                                                  children: [
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Flexible(
+                                                          child: Text(
+                                                            'Materiales:${b6DetallesdelServicioOrdersRecord?.materials}',
+                                                            maxLines: 5,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Baloo 2',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1.0, -1.0),
+                                                          child: Text(
+                                                            'DIreccion: ${b6DetallesdelServicioOrdersRecord?.adress}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Baloo 2',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.79, 0.76),
+                                                          child: FFButtonWidget(
+                                                            onPressed: () {
+                                                              print(
+                                                                  'Button pressed ...');
+                                                            },
+                                                            text: FFLocalizations
+                                                                    .of(context)
+                                                                .getText(
+                                                              'yow99cjw' /* Open Location */,
+                                                            ),
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 95.0,
+                                                              height: 30.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .grey3,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Baloo 2',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 0.0,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          30.0),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(height: 2.0)),
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Dia de inicio: ${b6DetallesdelServicioOrdersRecord?.startDate}',
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Baloo 2',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Dia de finalizacion:${b6DetallesdelServicioOrdersRecord?.endDate}',
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Baloo 2',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 10.0, 24.0, 20.0),
+                                              child: Row(
                                                 mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
-                                                  Flexible(
-                                                    child: Text(
-                                                      'Detalles:${b6DetallesdelServicioOrdersRecord?.details}',
+                                                  RichText(
+                                                    textScaler:
+                                                        MediaQuery.of(context)
+                                                            .textScaler,
+                                                    text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            '8u9pxxc8' /* $  */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Baloo 2',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                fontSize: 20.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: valueOrDefault<
+                                                              String>(
+                                                            b6DetallesdelServicioOrdersRecord
+                                                                ?.prise,
+                                                            'xxx',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .headlineLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Baloo 2',
+                                                                fontSize: 20.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        )
+                                                      ],
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .labelLarge
+                                                          .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Baloo 2',
@@ -474,249 +762,14 @@ class _B6DetallesdelServicioWidgetState
                                                   ),
                                                 ],
                                               ),
-                                            ].divide(SizedBox(height: 12.0)),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.stretch,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Flexible(
-                                                      child: Text(
-                                                        'Materiales:${b6DetallesdelServicioOrdersRecord?.materials}',
-                                                        maxLines: 5,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Baloo 2',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.end,
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.0, -1.0),
-                                                      child: Text(
-                                                        'DIreccion: ${b6DetallesdelServicioOrdersRecord?.adress}',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Baloo 2',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.79, 0.76),
-                                                      child: FFButtonWidget(
-                                                        onPressed: () {
-                                                          print(
-                                                              'Button pressed ...');
-                                                        },
-                                                        text:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                          'yow99cjw' /* Open Location */,
-                                                        ),
-                                                        options:
-                                                            FFButtonOptions(
-                                                          width: 95.0,
-                                                          height: 30.0,
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          iconPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .grey3,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Baloo 2',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                          elevation: 0.0,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      30.0),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ].divide(SizedBox(height: 2.0)),
                                             ),
-                                          ),
+                                          ]
+                                              .divide(SizedBox(height: 5.0))
+                                              .addToStart(
+                                                  SizedBox(height: 0.0)),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Dia de inicio: ${b6DetallesdelServicioOrdersRecord?.startDate}',
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Baloo 2',
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Dia de finalizacion:${b6DetallesdelServicioOrdersRecord?.endDate}',
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Baloo 2',
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 10.0, 24.0, 20.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              RichText(
-                                                textScaler:
-                                                    MediaQuery.of(context)
-                                                        .textScaler,
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text: FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '8u9pxxc8' /* $  */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Baloo 2',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                    ),
-                                                    TextSpan(
-                                                      text: valueOrDefault<
-                                                          String>(
-                                                        b6DetallesdelServicioOrdersRecord
-                                                            ?.prise,
-                                                        'xxx',
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .headlineLarge
-                                                          .override(
-                                                            fontFamily:
-                                                                'Baloo 2',
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Baloo 2',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ]
-                                          .divide(SizedBox(height: 5.0))
-                                          .addToStart(SizedBox(height: 0.0)),
-                                    ),
+                                      );
+                                    },
                                   ),
                                 ),
                               ],

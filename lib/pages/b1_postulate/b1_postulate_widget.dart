@@ -1398,9 +1398,9 @@ class _B1PostulateWidgetState extends State<B1PostulateWidget> {
                                                             getCurrentTimestamp,
                                                         cv: _model
                                                             .uploadedFileUrl,
-                                                        password: _model
-                                                            .passwordTextFieldTextController
-                                                            .text,
+                                                        cbu: int.tryParse(_model
+                                                            .emailTextFieldTextController3
+                                                            .text),
                                                       ));
                                                   await launchUrl(Uri(
                                                       scheme: 'mailto',

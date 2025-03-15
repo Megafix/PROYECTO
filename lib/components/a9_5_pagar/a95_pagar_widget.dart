@@ -521,151 +521,141 @@ class _A95PagarWidgetState extends State<A95PagarWidget> {
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
-                                        child: AuthUserStreamWidget(
-                                          builder: (context) =>
-                                              StreamBuilder<List<CardRecord>>(
-                                            stream: queryCardRecord(
-                                              queryBuilder: (cardRecord) =>
-                                                  cardRecord.where(
-                                                'iud',
-                                                isEqualTo: valueOrDefault(
-                                                    currentUserDocument?.userid,
-                                                    ''),
-                                              ),
+                                        child: StreamBuilder<List<CardRecord>>(
+                                          stream: queryCardRecord(
+                                            queryBuilder: (cardRecord) =>
+                                                cardRecord.where(
+                                              'iud',
+                                              isEqualTo: currentUserUid,
                                             ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    child: SpinKitDualRing(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 40.0,
-                                                    ),
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 40.0,
+                                                  height: 40.0,
+                                                  child: SpinKitDualRing(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    size: 40.0,
                                                   ),
-                                                );
-                                              }
-                                              List<CardRecord>
-                                                  buttonCardRecordList =
-                                                  snapshot.data!;
-
-                                              return FFButtonWidget(
-                                                onPressed: ((_model
-                                                                .checkboxValue ==
-                                                            null) &&
-                                                        (_model.ratingBarValue ==
-                                                            null))
-                                                    ? null
-                                                    : () async {
-                                                        if (containerOrdersRecord
-                                                                ?.status ==
-                                                            'Aprobacion') {
-                                                          _model.paymentapro =
-                                                              await MppaymentsCall
-                                                                  .call();
-
-                                                          await launchURL(
-                                                              MppaymentsCall
-                                                                  .paymenturl(
-                                                            columnMppaymentsResponse
-                                                                .jsonBody,
-                                                          )!);
-
-                                                          await containerOrdersRecord!
-                                                              .reference
-                                                              .update(
-                                                                  createOrdersRecordData(
-                                                            status:
-                                                                'Buscando profesionales',
-                                                          ));
-                                                        } else if (containerOrdersRecord
-                                                                ?.status ==
-                                                            'En proceso') {
-                                                          _model.paymentfin =
-                                                              await MppaymentsCall
-                                                                  .call();
-
-                                                          await launchURL(
-                                                              MppaymentsCall
-                                                                  .paymenturl(
-                                                            columnMppaymentsResponse
-                                                                .jsonBody,
-                                                          )!);
-
-                                                          await containerOrdersRecord!
-                                                              .reference
-                                                              .update(
-                                                                  createOrdersRecordData(
-                                                            status:
-                                                                'Finalizado',
-                                                          ));
-
-                                                          await columnFreelancersRecord!
-                                                              .reference
-                                                              .update(
-                                                                  createFreelancersRecordData(
-                                                            rating: _model
-                                                                        .ratingBarValue !=
-                                                                    null
-                                                                ? functions
-                                                                    .ratingfre()
-                                                                : '',
-                                                            countofWorks: functions
-                                                                .countofworkfre(),
-                                                          ));
-                                                        }
-
-                                                        Navigator.pop(context);
-
-                                                        context.pushNamed(
-                                                            A8MisServiciosWidget
-                                                                .routeName);
-
-                                                        safeSetState(() {});
-                                                      },
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'vl987uj2' /* Pagar */,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  height: 56.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(24.0, 16.0,
-                                                          24.0, 16.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Baloo 2',
-                                                        color: Colors.white,
-                                                        fontSize: 25.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  elevation: 0.0,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
-                                                  disabledColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText,
                                                 ),
                                               );
-                                            },
-                                          ),
+                                            }
+                                            List<CardRecord>
+                                                buttonCardRecordList =
+                                                snapshot.data!;
+
+                                            return FFButtonWidget(
+                                              onPressed: ((_model
+                                                              .checkboxValue ==
+                                                          null) &&
+                                                      (_model.ratingBarValue ==
+                                                          null))
+                                                  ? null
+                                                  : () async {
+                                                      if (containerOrdersRecord
+                                                              ?.status ==
+                                                          'Aprobacion') {
+                                                        _model.paymentapro =
+                                                            await MppaymentsCall
+                                                                .call();
+
+                                                        await launchURL(
+                                                            MppaymentsCall
+                                                                .paymenturl(
+                                                          columnMppaymentsResponse
+                                                              .jsonBody,
+                                                        )!);
+
+                                                        await containerOrdersRecord!
+                                                            .reference
+                                                            .update(
+                                                                createOrdersRecordData(
+                                                          status:
+                                                              'Buscando profesionales',
+                                                        ));
+                                                      } else if (containerOrdersRecord
+                                                              ?.status ==
+                                                          'En proceso') {
+                                                        _model.paymentfin =
+                                                            await MppaymentsCall
+                                                                .call();
+
+                                                        await launchURL(
+                                                            MppaymentsCall
+                                                                .paymenturl(
+                                                          columnMppaymentsResponse
+                                                              .jsonBody,
+                                                        )!);
+
+                                                        await containerOrdersRecord!
+                                                            .reference
+                                                            .update(
+                                                                createOrdersRecordData(
+                                                          status: 'Finalizado',
+                                                        ));
+
+                                                        await columnFreelancersRecord!
+                                                            .reference
+                                                            .update(
+                                                                createFreelancersRecordData(
+                                                          rating:
+                                                              _model.ratingBarValue !=
+                                                                      null
+                                                                  ? functions
+                                                                      .ratingfre()
+                                                                  : '',
+                                                          countofWorks: functions
+                                                              .countofworkfre(),
+                                                        ));
+                                                      }
+
+                                                      Navigator.pop(context);
+
+                                                      context.pushNamed(
+                                                          A8MisServiciosWidget
+                                                              .routeName);
+
+                                                      safeSetState(() {});
+                                                    },
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'vl987uj2' /* Pagar */,
+                                              ),
+                                              options: FFButtonOptions(
+                                                height: 56.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 16.0, 24.0, 16.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Baloo 2',
+                                                          color: Colors.white,
+                                                          fontSize: 25.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                                disabledColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
+                                            );
+                                          },
                                         ),
                                       ),
                                     ),

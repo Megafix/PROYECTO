@@ -42,15 +42,15 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>r_h_positivo</string>
+        <string>rhpositivoservicios.com.ar</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>RH.positivo</string>
+        <string>RHpositivo</string>
         </array>
         </dict>
     </array>
     <key>FlutterDeepLinkingEnabled</key>
-    <false/>
+    <true/>
 
 
 	<key>CFBundleVersion</key>

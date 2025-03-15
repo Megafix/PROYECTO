@@ -334,67 +334,63 @@ class _A7CambiarMetodoPagoWidgetState extends State<A7CambiarMetodoPagoWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
-                        child: AuthUserStreamWidget(
-                          builder: (context) => StreamBuilder<List<CardRecord>>(
-                            stream: queryCardRecord(
-                              queryBuilder: (cardRecord) => cardRecord.where(
-                                'iud',
-                                isEqualTo: valueOrDefault(
-                                    currentUserDocument?.userid, ''),
-                              ),
+                        child: StreamBuilder<List<CardRecord>>(
+                          stream: queryCardRecord(
+                            queryBuilder: (cardRecord) => cardRecord.where(
+                              'iud',
+                              isEqualTo: currentUserUid,
                             ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 40.0,
-                                    height: 40.0,
-                                    child: SpinKitDualRing(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      size: 40.0,
-                                    ),
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 40.0,
+                                  height: 40.0,
+                                  child: SpinKitDualRing(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    size: 40.0,
                                   ),
-                                );
-                              }
-                              List<CardRecord> buttonCardRecordList =
-                                  snapshot.data!;
-
-                              return FFButtonWidget(
-                                onPressed: () async {
-                                  FFAppState().ncard = (buttonCardRecordList
-                                          .where((e) => e.hasNumbercard())
-                                          .toList()
-                                          .isNotEmpty)
-                                      .toString();
-                                  safeSetState(() {});
-                                  Navigator.pop(context);
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'yx6c24gu' /* Subministrar metodo de pago */,
-                                ),
-                                options: FFButtonOptions(
-                                  height: 56.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 16.0, 24.0, 16.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Baloo 2',
-                                        color: Colors.white,
-                                        fontSize: 24.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  elevation: 0.0,
-                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                               );
-                            },
-                          ),
+                            }
+                            List<CardRecord> buttonCardRecordList =
+                                snapshot.data!;
+
+                            return FFButtonWidget(
+                              onPressed: () async {
+                                FFAppState().ncard = (buttonCardRecordList
+                                        .where((e) => e.hasNumbercard())
+                                        .toList()
+                                        .isNotEmpty)
+                                    .toString();
+                                safeSetState(() {});
+                                Navigator.pop(context);
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'yx6c24gu' /* Subministrar metodo de pago */,
+                              ),
+                              options: FFButtonOptions(
+                                height: 56.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 16.0, 24.0, 16.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Baloo 2',
+                                      color: Colors.white,
+                                      fontSize: 24.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ],

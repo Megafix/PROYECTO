@@ -10,7 +10,6 @@ import 'package:badges/badges.dart' as badges;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'a4_inicio_model.dart';
@@ -35,13 +34,6 @@ class _A4InicioWidgetState extends State<A4InicioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => A4InicioModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (FFAppState().userRole != 'client') {
-        context.safePop();
-      }
-    });
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();

@@ -213,10 +213,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Registrate con Google',
       'en': 'Sign up with Google',
     },
-    '18pahsw4': {
-      'es': 'Registrate con  Facebook',
-      'en': 'Sign up with Facebook',
-    },
     'tj5ofugi': {
       'es': 'Tengo una cuenta',
       'en': 'I have an account',
@@ -254,9 +250,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'No recibiste el codigo? ',
       'en': 'Didn\'t receive the code?',
     },
-    '7axmi8vz': {
+    '3brb6n9f': {
       'es': 'Reenviar',
-      'en': 'Forward',
+      'en': '',
     },
     'd4d5qm5u': {
       'es': 'Verificacion',
@@ -1401,10 +1397,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '420s0aeh': {
       'es': 'Configuracion',
-      'en': '',
-    },
-    '6vzdg0s2': {
-      'es': 'Page Title',
       'en': '',
     },
     'tpcxi4d9': {
